@@ -4,16 +4,16 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 
 ## Product
 
-- [ ] Live challenge page works from a fresh session — NOT RUN
-- [ ] Native WebMCP detected — NOT RUN
-- [ ] Seven tools invoked in a compatible browser agent — NOT RUN
+- [x] Live challenge page works from a fresh session — PASSED
+- [x] Native WebMCP detected — PASSED in ChatGPT in-app browser
+- [x] Seven tools invoked in a compatible browser agent — PASSED natively
 - [ ] Full fresh Project Aurora scenario — PASSED locally through compatible harness
 - [ ] Reset and cross-session isolation — PASSED locally
 - [ ] Persisted worker terminal state — PASSED locally
 - [ ] Four required evidence checks pass — PASSED locally
 - [ ] Acceptance binds exact evidence hash — PASSED locally
 - [ ] Certificate issues and verifies — PASSED locally
-- [ ] No external action or production data — PASSED by code/tests; deployed verification NOT RUN
+- [x] No external action or production data — PASSED by code, tests, deployed state, and policy inspection
 
 ## Engineering gate
 
@@ -27,7 +27,7 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 - [x] Source secret scan — PASSED
 - [x] Prompt-only security scan contract finalized — PASSED (complete executable scope, 0 findings)
 - [x] Clean public clone install/test/build — PASSED, including artifact route manifest
-- [ ] Deployed smoke and full scenario — NOT RUN
+- [x] Deployed smoke and full scenario — PASSED: 12/12 remote E2E plus native ChatGPT flow
 
 ## Public source
 

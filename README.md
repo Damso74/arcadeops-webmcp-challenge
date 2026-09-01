@@ -138,7 +138,7 @@ ArcadeOps previously contained private mission, approval, evidence, and certific
 
 ## Live demo
 
-Deployment status and the verified public URL are recorded in [HACKATHON.md](HACKATHON.md).
+Live: <https://arcadeops-relay.51-210-5-255.sslip.io>. Deployment evidence is recorded in [HACKATHON.md](HACKATHON.md).
 
 ## Video
 

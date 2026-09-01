@@ -22,11 +22,13 @@ npm run eval
 | Duplicate-mutation rate | 0% |
 | Certificate-verification success | 100% |
 | Average tool calls | 9 |
-| Native ChatGPT browser-agent run | NOT RUN |
+| Native ChatGPT browser-agent run | PASSED on deployed site |
 
 Environment label: `deterministic WebMCP-compatible contract harness`.
 
-The reported 100% values are limited to this deterministic five-run set. They do not claim free-form tool selection or native ChatGPT browser execution. Native results are appended only after a genuine deployed run.
+The reported 100% harness values are limited to this deterministic five-run set and do not claim free-form tool-selection measurement. Separately, at `2026-09-01T09:41:16Z`, ChatGPT's in-app browser natively discovered all seven page tools on the deployed site and completed the real inspect → plan → launch → human decision → resume → evidence → human acceptance → certificate verification flow. The final result was `CERTIFICATE_VALID`, `certificateHashVerified: true`, with the evidence-pack hash equal to the accepted hash.
+
+The deployed Playwright-compatible suite also passed 12/12 checks across desktop light, desktop dark, and mobile.
 
 ## Prompt set represented
 

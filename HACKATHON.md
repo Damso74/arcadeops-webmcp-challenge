@@ -49,7 +49,8 @@ The public repository starts from a new root commit so private history cannot be
 ## Deployment and publication
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
-- Live deployment, YouTube, and Devpost: not yet claimed.
+- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200, 12 deployed E2E tests passed, and a native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`.
+- YouTube and Devpost: not yet claimed.
 
 ## Known limitations
 

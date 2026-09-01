@@ -19,9 +19,9 @@ The bounded worker is deterministic by design: it creates actual versioned appli
 | Dependency audit | PASSED | 0 known npm vulnerabilities |
 | Repository secret scan | PASSED | 46 source files at time of scan |
 | Prompt-only security scan | PASSED | complete executable runtime scope, 0 reportable findings; sealed contract `scan_arcadeops_relay_20260901` |
-| Native ChatGPT browser | NOT RUN | requires deployed compatible environment |
+| Native ChatGPT browser | PASSED | deployed in-app browser discovered seven tools and completed a valid certificate flow |
 | Clean clone | PASSED | fresh local clone, `npm ci`, secret scan, lint, typecheck, 14 tests, complete build with artifact route |
-| Deployed smoke | NOT RUN | deployment not yet created at this checkpoint |
+| Deployed smoke and E2E | PASSED | HTTPS health/page 200; 12/12 remote browser tests; native flow passed |
 
 The development browser console reports React's expected CSP warning because development debugging attempts `eval`; production does not use it. The production CSP intentionally omits `unsafe-eval`.
 
@@ -36,4 +36,4 @@ No validated critical, high, medium, or low application vulnerability remains in
 
 ## Pending publication gates
 
-The public source is verified at <https://github.com/Damso74/arcadeops-webmcp-challenge>. This report is updated after container deployment, native browser testing, media inspection, YouTube publication, and Devpost submission. A local pass is not represented as any of those external states.
+The public source is verified at <https://github.com/Damso74/arcadeops-webmcp-challenge> and the live deployment at <https://arcadeops-relay.51-210-5-255.sslip.io>. The non-root, read-only-rootfs container is capped at one CPU and 512 MiB and runs on an isolated Docker network alias behind the existing TLS proxy. ArcadeOps production health remained HTTP 200 after the hot proxy load. Media inspection, YouTube publication, and Devpost submission remain separate external gates.

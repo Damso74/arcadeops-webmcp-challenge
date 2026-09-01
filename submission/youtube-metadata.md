@@ -8,7 +8,7 @@ ArcadeOps Relay — Browser Agents Delegate Real Work with WebMCP
 
 ArcadeOps Relay lets a browser agent delegate bounded work to an AI worker through native WebMCP, while a human retains authority and evidence proves the result.
 
-Live demo: added after verified deployment
+Live demo: https://arcadeops-relay.51-210-5-255.sslip.io
 
 Open-source repository: https://github.com/Damso74/arcadeops-webmcp-challenge
 

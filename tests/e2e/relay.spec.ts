@@ -67,7 +67,7 @@ test("native-compatible tool surface drives the full visible Project Aurora loop
   const secondContext = await page.context().browser()!.newContext();
   const secondPage = await secondContext.newPage();
   await installWebMcpHarness(secondPage);
-  await secondPage.goto("http://127.0.0.1:3100/");
+  await secondPage.goto(`${new URL(page.url()).origin}/`);
   await expect(secondPage.getByText("No human decision is pending.")).toBeVisible();
   await secondContext.close();
 
