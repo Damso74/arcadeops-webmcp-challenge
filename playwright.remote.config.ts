@@ -6,6 +6,7 @@ if (!baseURL) throw new Error("RELAY_E2E_BASE_URL is required");
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: false,
+  workers: 1,
   retries: 0,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {

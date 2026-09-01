@@ -5,6 +5,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: false,
+  workers: 1,
   retries: 0,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
@@ -18,15 +19,15 @@ export default defineConfig({
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
   webServer: {
-    command: "npm run dev -- --hostname 127.0.0.1 --port 3100",
+    command: "npm run build && npm run start -- --hostname 127.0.0.1 --port 3100",
     url: "http://127.0.0.1:3100/api/health",
     reuseExistingServer: false,
-    timeout: 120_000,
+    timeout: 180_000,
     env: {
       ...process.env,
       RELAY_SESSION_SECRET: "playwright-relay-session-secret-at-least-32-characters",
       RELAY_COOKIE_SECURE: "0",
-      RELAY_DB_PATH: path.join(process.cwd(), ".data", "playwright.sqlite"),
+      RELAY_DB_PATH: path.join(process.cwd(), ".data", `playwright-${process.pid}.sqlite`),
     },
   },
 });
