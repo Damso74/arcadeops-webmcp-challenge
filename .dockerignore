@@ -11,3 +11,4 @@ video/rendered
 .env*
 *.sqlite*
 *.log
+*.tar
