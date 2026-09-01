@@ -1,0 +1,13 @@
+.git
+.next
+node_modules
+.data
+artifacts
+coverage
+playwright-report
+test-results
+video/captures
+video/rendered
+.env*
+*.sqlite*
+*.log

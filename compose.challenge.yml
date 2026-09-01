@@ -1,0 +1,23 @@
+services:
+  relay:
+    build: .
+    restart: unless-stopped
+    environment:
+      RELAY_SESSION_SECRET: ${RELAY_SESSION_SECRET:?required}
+      RELAY_COOKIE_SECURE: "1"
+      RELAY_DB_PATH: /data/arcadeops-relay.sqlite
+      RELAY_SESSION_TTL_MINUTES: "120"
+      RELAY_MAX_MISSIONS_PER_SESSION: "2"
+      RELAY_MAX_COST_USD: "0.02"
+    ports:
+      - "127.0.0.1:3210:3000"
+    volumes:
+      - relay-data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  relay-data:
