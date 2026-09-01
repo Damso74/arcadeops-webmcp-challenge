@@ -25,7 +25,9 @@ All demonstration data is synthetic. No production system or third party is cont
 - Audience: not made for children
 - Category: Science & Technology
 - Captions: English `.srt`
-- Thumbnail: `video/arcadeops-relay-thumbnail.png`
+- Thumbnail: `submission/media/arcadeops-relay-thumbnail.png`
+- Video: `submission/media/arcadeops-relay-webmcp-demo.mp4`
+- Captions source: `video/assets/captions.en.srt` (also burned into the video)
 
 ## Publication status
 

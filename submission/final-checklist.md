@@ -7,12 +7,12 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 - [x] Live challenge page works from a fresh session — PASSED
 - [x] Native WebMCP detected — PASSED in ChatGPT in-app browser
 - [x] Seven tools invoked in a compatible browser agent — PASSED natively
-- [ ] Full fresh Project Aurora scenario — PASSED locally through compatible harness
-- [ ] Reset and cross-session isolation — PASSED locally
-- [ ] Persisted worker terminal state — PASSED locally
-- [ ] Four required evidence checks pass — PASSED locally
-- [ ] Acceptance binds exact evidence hash — PASSED locally
-- [ ] Certificate issues and verifies — PASSED locally
+- [x] Full fresh Project Aurora scenario — PASSED locally, deployed E2E, and native browser
+- [x] Reset and cross-session isolation — PASSED locally and deployed E2E
+- [x] Persisted worker terminal state — PASSED locally, deployed E2E, and native browser
+- [x] Four required evidence checks pass — PASSED locally, deployed E2E, and native browser
+- [x] Acceptance binds exact evidence hash — PASSED locally, deployed E2E, and native browser
+- [x] Certificate issues and verifies — PASSED locally, deployed E2E, and native browser
 - [x] No external action or production data — PASSED by code, tests, deployed state, and policy inspection
 
 ## Engineering gate
@@ -20,14 +20,14 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 - [x] Lint — PASSED
 - [x] Type check — PASSED
 - [x] Unit/integration/evaluation tests — PASSED (14)
-- [x] Browser E2E — PASSED (12)
+- [x] Browser E2E — PASSED (15)
 - [x] Accessibility and responsive coverage — PASSED
 - [x] Production build — PASSED
 - [x] npm audit — PASSED (0 known vulnerabilities)
 - [x] Source secret scan — PASSED
 - [x] Prompt-only security scan contract finalized — PASSED (complete executable scope, 0 findings)
 - [x] Clean public clone install/test/build — PASSED, including artifact route manifest
-- [x] Deployed smoke and full scenario — PASSED: 12/12 remote E2E plus native ChatGPT flow
+- [x] Deployed smoke and full scenario — PASSED: 15/15 remote E2E after the UI redesign; native ChatGPT flow previously passed with the unchanged adapter/contracts
 
 ## Public source
 
@@ -39,12 +39,12 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 
 ## Video
 
-- [x] Final English script, 270–330 words — PASSED (319 words)
-- [ ] ElevenLabs narration generated and inspected — NOT RUN
-- [ ] Genuine deployed browser footage captured — NOT RUN
-- [ ] 1920×1080 render under 2:55 — NOT RUN
-- [ ] Audio, loudness, captions, first/final frames, and privacy inspected — NOT RUN
-- [ ] Thumbnail 1280×720 inspected — NOT RUN
+- [x] Final English script, 270–330 words — PASSED (318 words)
+- [x] ElevenLabs narration generated and inspected — PASSED (George, Eleven v3, 318 words)
+- [x] Genuine deployed browser footage captured — PASSED (live URL, WebMCP-compatible harness)
+- [x] 1920×1080 render under 2:55 — PASSED (2:39.08, H.264/AAC)
+- [x] Audio, loudness, captions, first/final frames, and privacy inspected — PASSED (-16.57 LUFS, -1.46 dBTP)
+- [x] Thumbnail 1280×720 inspected — PASSED
 - [ ] YouTube Public and signed-out URL verified — NOT RUN
 
 ## Devpost

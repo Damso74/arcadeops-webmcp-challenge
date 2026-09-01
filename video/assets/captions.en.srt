@@ -1,0 +1,135 @@
+1
+00:00:03,000 --> 00:00:07,811
+AI agents can perform work, but teams still need to
+
+2
+00:00:07,811 --> 00:00:12,623
+know who authorized an action, whether the result is real,
+
+3
+00:00:12,623 --> 00:00:17,434
+and what evidence supports it. ArcadeOps Relay lets a browser
+
+4
+00:00:17,434 --> 00:00:22,245
+agent delegate work to AI workers through native Web M
+
+5
+00:00:22,245 --> 00:00:25,613
+C P, while a human retains authority.
+
+6
+00:00:25,613 --> 00:00:29,462
+Both see the same live, authoritative project state.
+
+7
+00:00:29,462 --> 00:00:34,274
+This is Project Aurora: a staged release due tomorrow, one
+
+8
+00:00:34,274 --> 00:00:39,085
+blocked validation task, and strict rules forbidding production changes or
+
+9
+00:00:39,085 --> 00:00:42,934
+external contact. The page registers seven intent-level tools.
+
+10
+00:00:42,934 --> 00:00:47,745
+The browser agent calls inspect project—not the DOM—and receives the
+
+11
+00:00:47,745 --> 00:00:52,075
+objective, constraints, permissions, risk ceiling, and safe next actions.
+
+12
+00:00:52,075 --> 00:00:56,887
+It drafts a bounded mission plan. The phases, cost cap,
+
+13
+00:00:56,887 --> 00:01:01,698
+acceptance criteria, required evidence, and likely human decisions appear immediately
+
+14
+00:01:01,698 --> 00:01:05,547
+in ArcadeOps. Drafting does not silently launch work.
+
+15
+00:01:05,547 --> 00:01:10,358
+Now the browser agent launches one persisted worker mission with
+
+16
+00:01:10,358 --> 00:01:15,170
+a signed plan handle. The server enforces the tool allowlist,
+
+17
+00:01:15,170 --> 00:01:19,981
+budget, session boundary, and idempotency. The worker creates a real
+
+18
+00:01:19,981 --> 00:01:24,792
+pre-decision analysis, then the mission pauses. The Decisions Inbox explains
+
+19
+00:01:24,792 --> 00:01:29,604
+why the release strategy requires a human, what the agent
+
+20
+00:01:29,604 --> 00:01:33,934
+may do, and the consequences of staging or postponing.
+
+21
+00:01:33,934 --> 00:01:38,745
+There is no approval tool in Web M C P.
+
+22
+00:01:38,745 --> 00:01:43,075
+I choose a staged release with documented residual risk.
+
+23
+00:01:43,075 --> 00:01:47,887
+The browser agent observes that separate decision and resumes the
+
+24
+00:01:47,887 --> 00:01:52,698
+exact persisted run. Stale, replayed, cross-session, or duplicated calls fail
+
+25
+00:01:52,698 --> 00:01:57,509
+closed or return the existing result. The worker produces the
+
+26
+00:01:57,509 --> 00:02:02,321
+release-readiness summary and rollback plan—without contacting anyone or changing production.
+
+27
+00:02:02,321 --> 00:02:07,132
+Completion alone is not verification. ArcadeOps evaluates four required checks.
+
+28
+00:02:07,132 --> 00:02:10,500
+All pass, creating a canonical evidence-pack hash.
+
+29
+00:02:10,500 --> 00:02:15,311
+I accept that exact version. Relay issues an Ed twenty-five
+
+30
+00:02:15,311 --> 00:02:20,123
+five nineteen release certificate binding the run, decision, artifacts, and
+
+31
+00:02:20,123 --> 00:02:24,934
+acceptance. The browser agent verifies both its hash and signature:
+
+32
+00:02:24,934 --> 00:02:29,745
+certificate valid. ArcadeOps Relay turns browser agents into accountable managers
+
+33
+00:02:29,745 --> 00:02:34,557
+of AI work: humans set authority, agents execute, and evidence
+
+34
+00:02:34,557 --> 00:02:36,000
+proves the result.

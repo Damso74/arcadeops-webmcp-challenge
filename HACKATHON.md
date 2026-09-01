@@ -43,15 +43,20 @@ The parent ArcadeOps challenge branch begins with:
 
 - `4d5f5ec8ba1c1058dfc40b2f821a68acd6ec25f1` — challenge start ledger.
 - `c4cfe1f4` — complete Relay vertical slice, hardening, tests, documentation, and deployment package.
+- `5f5472c6` — first operations-workspace visual pass.
+- `877ab514` — authoritative reset synchronization.
+- `8b683727` — flat Project Aurora operations layout and eight reusable UI primitives.
+- `8d75bfe1` — deployment archive exclusion.
 
-The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. Initial public commits: `3b21a25`, then `4caec79` for the artifact-route export fix.
+The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The verified public runtime/UI head before media packaging is `16459cccfa3b323ef8f6d202d8083c0d7b1ba57a`.
 
 ## Deployment and publication
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
-- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200, 12 deployed E2E tests passed, and a native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`.
+- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed after the flat operations redesign. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later redesign did not alter its WebMCP adapter or server contracts.
+- Media: final deployed-app capture rendered at 1920×1080, 2:39.08, H.264/AAC, with English narration and burned captions; video SHA-256 `fd10551c8f347c0aa40df6f2dc29033799b4f0810c8750d7f77e331c2666facb`; thumbnail SHA-256 `c8047c6a57402fd4ca348b36e76ccc1413ab7b1e6911f5ec900501f6ae28c5f0`.
 - YouTube and Devpost: not yet claimed.
 
 ## Known limitations
 
-See the README limitations section. Native ChatGPT browser verification, public deployment, video publication, and Devpost status are tracked as separate release gates and never inferred from local tests.
+See the README limitations section. Native ChatGPT browser verification and the public deployment are verified. YouTube publication and Devpost status remain separate release gates and are never inferred from prepared local artifacts.

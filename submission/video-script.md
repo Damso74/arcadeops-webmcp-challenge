@@ -1,6 +1,6 @@
-# Video script — target 2:42
+# Video script — final 2:39
 
-Narration: 319 words. English, clear international delivery, approximately 118 words per minute with the marked pauses.
+Narration: 318 words. English, clear international delivery, approximately 118 words per minute with the marked pauses.
 
 ## 0:00–0:13 — Hook
 
