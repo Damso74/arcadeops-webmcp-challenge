@@ -15,6 +15,10 @@ export default defineConfig({
     },
   },
   test: {
+    // The persistence and evaluation suites intentionally exercise one shared
+    // SQLite file. Keep files sequential so separate Vitest workers never race
+    // while enabling WAL on that fixture database.
+    fileParallelism: false,
     include: ["tests/**/*.test.ts", "tests/**/*.test.tsx"],
     coverage: { reporter: ["text", "json-summary"] },
   },

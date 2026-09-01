@@ -68,7 +68,7 @@ test("native-compatible tool surface drives the full visible Project Aurora loop
   const secondPage = await secondContext.newPage();
   await installWebMcpHarness(secondPage);
   await secondPage.goto(`${new URL(page.url()).origin}/`);
-  await expect(secondPage.getByText("No reviews pending.")).toBeVisible();
+  await expect(secondPage.getByText("No release review is waiting for you.")).toBeVisible();
   await secondContext.close();
 
   await page.getByRole("button", { name: "Stage the release" }).click();
@@ -102,7 +102,7 @@ test("session reset is deterministic and mobile layout has no horizontal overflo
   await invoke(page, "inspect_project");
   await page.getByRole("button", { name: "Run review" }).click();
   await expect(page.getByText("Revision 0", { exact: true })).toBeVisible();
-  await expect(page.getByText("No reviews pending.")).toBeVisible();
+  await expect(page.getByText("No release review is waiting for you.")).toBeVisible();
   const state = await page.evaluate(async () => (await fetch("/api/session")).json());
   expect(state.session.revision).toBe(0);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);

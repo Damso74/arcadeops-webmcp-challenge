@@ -47,6 +47,7 @@ The parent ArcadeOps challenge branch begins with:
 - `877ab514` — authoritative reset synchronization.
 - `8b683727` — flat Project Aurora operations layout and eight reusable UI primitives.
 - `8d75bfe1` — deployment archive exclusion.
+- `21c1999b` — Catalyst-inspired operations refinement: grouped navigation, discreet WebMCP command, actionable review controls, and deterministic test isolation.
 
 The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The verified public runtime/UI head before media packaging is `16459cccfa3b323ef8f6d202d8083c0d7b1ba57a`.
 

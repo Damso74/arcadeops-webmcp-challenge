@@ -14,6 +14,7 @@ import {
   ListChecks,
   MoreHorizontal,
   Play,
+  Settings,
   ShieldCheck,
   Target,
   Users,
@@ -60,16 +61,22 @@ type Tone = "neutral" | "info" | "success" | "warning" | "danger";
 const judgePrompt =
   "Inspect Project Aurora, prepare a safe release mission, delegate the work, stop for any required human decision, and verify the final delivery. Do not bypass approvals or modify production.";
 
-const navigation = [
+const workspaceNavigation = [
   { label: "Overview", href: "#overview", icon: LayoutDashboard, active: false },
   { label: "Projects", href: "#project", icon: FolderKanban, active: true },
   { label: "Missions", href: "#mission", icon: Target, active: false },
   { label: "Tasks", href: "#readiness", icon: ListChecks, active: false },
-  { label: "Decisions", href: "#review", icon: Inbox, active: false },
-  { label: "Approvals", href: "#review", icon: ShieldCheck, active: false },
+] as const;
+
+const operationsNavigation = [
+  { label: "Reviews", href: "#review", icon: Inbox, active: false },
   { label: "Runs", href: "#activity", icon: Activity, active: false },
+  { label: "Activity", href: "#activity", icon: History, active: false },
+] as const;
+
+const accountNavigation = [
   { label: "Team", href: "#policy", icon: Users, active: false },
-  { label: "History", href: "#activity", icon: History, active: false },
+  { label: "Settings", href: "#policy", icon: Settings, active: false },
 ] as const;
 
 function shortHash(value: string): string {
@@ -78,6 +85,33 @@ function shortHash(value: string): string {
 
 function actorLabel(actor: string): string {
   return ({ arcadeops: "ArcadeOps", browser_agent: "Browser operator", worker: "Release worker", human: "Human reviewer" }[actor] || actor.replaceAll("_", " "));
+}
+
+function eventLabel(kind: string): string {
+  return ({
+    SESSION_CREATED: "Workspace created",
+    PROJECT_INSPECTED: "Project inspected",
+    PLAN_DRAFTED: "Release plan prepared",
+    MISSION_LAUNCHED: "Execution started",
+    WORKER_PAUSED: "Execution paused",
+    HUMAN_DECISION_REQUIRED: "Review requested",
+    MISSION_RESUMED: "Execution resumed",
+    DELIVERABLE_PRODUCED: "Deliverable produced",
+    EVIDENCE_PASS: "Evidence verified",
+    DELIVERY_ACCEPTED: "Delivery accepted",
+    CERTIFICATE_ISSUED: "Certificate issued",
+  }[kind] || kind.toLowerCase().replaceAll("_", " "));
+}
+
+function capabilityLabel(capability: string): string {
+  return ({
+    email: "External email",
+    calendar: "Calendar changes",
+    financial: "Financial actions",
+    deployment: "Deployments",
+    production_mutation: "Production changes",
+    destructive_tools: "Destructive actions",
+  }[capability] || capability.replaceAll("_", " "));
 }
 
 function stateTone(state: string): Tone {
@@ -120,10 +154,10 @@ function PageHeader({ session, webMcp, busy, onRun }: { session: SessionView; we
 
 function CommandBar({ copied, onCopy }: { copied: boolean; onCopy: () => void }) {
   return (
-    <section className="command-bar" aria-label="Browser instruction">
+    <section className="command-bar" aria-label="WebMCP command">
       <Command aria-hidden="true" size={16} />
-      <p><strong>Browser instruction</strong><span>{judgePrompt}</span></p>
-      <button className="command-copy" onClick={onCopy} type="button">{copied ? <Check aria-hidden="true" size={14} /> : <Copy aria-hidden="true" size={14} />}{copied ? "Copied" : "Copy"}</button>
+      <p><strong>WebMCP command</strong><span>Release review workflow available</span></p>
+      <button className="command-copy" onClick={onCopy} type="button">{copied ? <Check aria-hidden="true" size={14} /> : <Copy aria-hidden="true" size={14} />}{copied ? "Copied" : "Copy command"}</button>
     </section>
   );
 }
@@ -147,7 +181,7 @@ function ActivityFeed({ events }: { events: SessionView["events"] }) {
           <span className={`feed-node actor-${entry.actor}`} aria-hidden="true" />
           <div className="feed-content">
             <div><strong>{actorLabel(entry.actor)}</strong><time dateTime={entry.at}>{new Date(entry.at).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}</time></div>
-            <p>{entry.summary}</p><code>{entry.kind === "HUMAN_DECISION_REQUIRED" ? "authority_gate_opened" : entry.kind.toLowerCase()}</code>
+            <p>{entry.summary}</p><code>{eventLabel(entry.kind)}</code>
           </div>
         </li>
       ))}
@@ -158,11 +192,12 @@ function ActivityFeed({ events }: { events: SessionView["events"] }) {
 function ReviewPanel({ session, busy, onHumanAction }: { session: SessionView; busy: string | null; onHumanAction: (body: Record<string, unknown>, label: string) => void }) {
   const pending = session.decision?.status === "PENDING";
   const accepted = session.status === "ACCEPTED";
+  const remainingExecutions = Math.max(0, session.maxLaunches - session.launchCount);
   return (
     <aside className="review-panel" id="review" aria-labelledby="review-title">
-      <div className="review-heading"><h2 id="review-title">Review &amp; controls</h2><StatusDot label={pending ? "1 review open" : "No reviews pending"} tone={pending ? "warning" : "success"} /></div>
+      <div className="review-heading"><h2 id="review-title">Review &amp; controls</h2><StatusDot label={pending ? "Action required" : "No action required"} tone={pending ? "warning" : "success"} /></div>
       <section className="review-section">
-        <h3>Release decision</h3>
+        <h3>Release review</h3>
         {pending && session.decisionRef ? (
           <div className="decision-block">
             <StatusDot label="Human decision required" tone="warning" />
@@ -172,7 +207,24 @@ function ReviewPanel({ session, busy, onHumanAction }: { session: SessionView; b
           </div>
         ) : session.decision ? (
           <div className={`decision-result ${session.decision.status === "APPROVED" ? "approved" : "denied"}`}><StatusDot label="Human decision recorded" tone={session.decision.status === "APPROVED" ? "success" : "danger"} /><span>{session.decision.selectedChoice?.replaceAll("_", " ")}</span></div>
-        ) : <EmptyState>No reviews pending.</EmptyState>}
+        ) : <EmptyState>No release review is waiting for you.</EmptyState>}
+      </section>
+      <section className="review-section control-summary" id="policy">
+        <h3>Controls</h3>
+        <dl>
+          <div><dt>Release certificate</dt><dd>{accepted ? "Valid" : "Not issued"}</dd></div>
+          <div><dt>Execution budget</dt><dd>${session.costCapUsd.toFixed(2)}</dd></div>
+          <div><dt>Permissions</dt><dd>Restricted</dd></div>
+          <div><dt>Capacity</dt><dd>{remainingExecutions} {remainingExecutions === 1 ? "execution" : "executions"} available</dd></div>
+        </dl>
+        <details className="policy-details">
+          <summary>View policy</summary>
+          <div className="policy-content">
+            <MetadataList items={[`Risk ${session.policy.riskCeiling}`, `${session.launchCount}/${session.maxLaunches} executions used`]} />
+            <p><strong>Unavailable actions</strong></p>
+            <ul>{session.policy.deniedCapabilities.map((capability) => <li key={capability}>{capabilityLabel(capability)}</li>)}</ul>
+          </div>
+        </details>
       </section>
       <section className="review-section" id="evidence">
         <h3>Evidence</h3>
@@ -185,11 +237,6 @@ function ReviewPanel({ session, busy, onHumanAction }: { session: SessionView; b
         ) : <EmptyState>Evidence will appear after the run finishes.</EmptyState>}
         {session.delivery?.readyForAcceptance && !session.delivery.certificate && session.acceptanceToken && session.evidence ? <button className="button button-primary button-full" disabled={busy !== null} onClick={() => onHumanAction({ action: "accept_delivery", acceptanceToken: session.acceptanceToken, evidencePackHash: session.evidence?.packHash }, "accept")} type="button">Accept this exact evidence pack</button> : null}
         <div className="certificate-row"><StatusDot label="Release certificate" tone={accepted ? "success" : "neutral"} /><strong>{accepted ? "VALID" : "Not issued"}</strong>{session.delivery?.certificate ? <code title={session.delivery.certificate.certificateHash}>{shortHash(session.delivery.certificate.certificateHash)}</code> : null}</div>
-      </section>
-      <section className="review-section" id="policy">
-        <h3>Operating boundary</h3>
-        <MetadataList items={[`Policy ${session.policy.riskCeiling}`, `$${session.costCapUsd.toFixed(2)} cost cap`, `${session.launchCount}/${session.maxLaunches} runs used`]} />
-        <p className="policy-copy"><strong>Unavailable:</strong> {session.policy.deniedCapabilities.join(", ")}.</p>
       </section>
     </aside>
   );
@@ -251,7 +298,11 @@ export function RelayDashboard() {
     <main className="operations-shell" id="overview">
       <aside className="app-sidebar" aria-label="Main navigation">
         <div className="brand-block"><span className="brand-mark" aria-hidden="true">AO</span><div><strong>ArcadeOps</strong><span>Operations</span></div></div>
-        <nav className="business-nav" aria-label="Main navigation">{navigation.map(({ label, href, icon: Icon, active }) => <a className={active ? "active" : ""} href={href} key={label}><Icon aria-hidden="true" size={16} strokeWidth={1.8} /><span>{label}</span>{label === "Decisions" && session.decision?.status === "PENDING" ? <i className="nav-attention" aria-label="1 pending decision" /> : null}</a>)}</nav>
+        <nav className="business-nav" aria-label="Main navigation">
+          <div className="nav-group"><span className="nav-group-label">Workspace</span>{workspaceNavigation.map(({ label, href, icon: Icon, active }) => <a className={active ? "active" : ""} href={href} key={label}><Icon aria-hidden="true" size={16} strokeWidth={1.8} /><span>{label}</span></a>)}</div>
+          <div className="nav-group"><span className="nav-group-label">Operations</span>{operationsNavigation.map(({ label, href, icon: Icon, active }) => <a className={active ? "active" : ""} href={href} key={label}><Icon aria-hidden="true" size={16} strokeWidth={1.8} /><span>{label}</span>{label === "Reviews" && session.decision?.status === "PENDING" ? <i className="nav-attention" aria-label="1 pending review" /> : null}</a>)}</div>
+          <div className="nav-group nav-group-account">{accountNavigation.map(({ label, href, icon: Icon, active }) => <a className={active ? "active" : ""} href={href} key={label}><Icon aria-hidden="true" size={16} strokeWidth={1.8} /><span>{label}</span></a>)}</div>
+        </nav>
         <div className="sidebar-note"><ShieldCheck aria-hidden="true" size={15} /><div><strong>Isolated workspace</strong><span>Synthetic data · no external actions</span></div></div>
       </aside>
       <div className="workspace-shell">
@@ -270,10 +321,10 @@ export function RelayDashboard() {
               </section>
               <section className="content-section" id="mission" aria-labelledby="plan-title">
                 <div className="section-heading"><div><h2 id="plan-title">{session.plan ? `Mission plan · v${session.plan.version}` : "Mission plan"}</h2><p>{session.plan ? `Budget $${session.plan.budgetUsd.toFixed(3)} · ${session.plan.requiredEvidence.length} required evidence checks` : "No release plan has been created."}</p></div>{session.plan ? <StatusDot label="Prepared" tone="info" /> : null}</div>
-                {session.plan ? <ol className="phase-list">{session.plan.phases.map((phase, index) => <li key={phase.name}><span>{String(index + 1).padStart(2, "0")}</span><strong>{phase.name}</strong><p>{phase.tasks.join(" · ")}</p></li>)}</ol> : <EmptyState>Create a release plan from the browser instruction above.</EmptyState>}
+                {session.plan ? <ol className="phase-list">{session.plan.phases.map((phase, index) => <li key={phase.name}><span>{String(index + 1).padStart(2, "0")}</span><strong>{phase.name}</strong><p>{phase.tasks.join(" · ")}</p></li>)}</ol> : <EmptyState>Use the available WebMCP command to prepare a release plan.</EmptyState>}
               </section>
               <section className="content-section" id="activity" aria-labelledby="activity-title">
-                <div className="section-heading"><div><h2 id="activity-title">Execution</h2><p>{session.run ? session.run.currentStep : "No run in progress."}</p></div><MetadataList items={[`$${session.run?.costUsd.toFixed(3) || "0.000"} cost`, session.run?.costTruth || "No usage"]} /></div>
+                <div className="section-heading"><div><h2 id="activity-title">Execution</h2><p>{session.run ? session.run.currentStep : "No active execution."}</p></div><MetadataList items={[`$${session.run?.costUsd.toFixed(3) || "0.000"} cost`, session.run?.costTruth || "No usage"]} /></div>
                 <ActivityFeed events={session.events} />
               </section>
             </div>

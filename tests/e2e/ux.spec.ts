@@ -16,11 +16,17 @@ test("business-first operations workspace renders without UI errors or overflow"
   await page.goto("/");
   await expect(page.getByText("WebMCP connected · 7 tools")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Main navigation" })).toContainText("Projects");
+  await expect(page.getByRole("navigation", { name: "Main navigation" })).toContainText("Reviews");
+  await expect(page.getByText("WebMCP command", { exact: true })).toBeVisible();
+  await expect(page.getByText("Release review workflow available", { exact: true })).toBeVisible();
+  await expect(page.getByText("Browser instruction", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Project Aurora", level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Release readiness" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Execution" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Review & controls", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Operating boundary" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Controls", exact: true })).toBeVisible();
+  await expect(page.getByText("Permissions", { exact: true })).toBeVisible();
+  await expect(page.getByText("Restricted", { exact: true })).toBeVisible();
 
   const diagnostics = await page.evaluate(() => ({
     blank: document.body.innerText.trim().length === 0,
