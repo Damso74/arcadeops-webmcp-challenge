@@ -1,42 +1,44 @@
-# Video script — final 1:48
+# Video script — conversational cut
 
-Narration: 318 words. English, energetic international delivery at approximately 185 words per minute.
+English narration generated at the selected ElevenLabs voice's native cadence. No tempo or pitch stretching.
 
-## 0:00–0:10 — Hook
+## 0:00–0:02 — Hook
 
-AI agents can perform work, but teams still need to know who authorized an action, whether the result is real, and what evidence supports it. [pause]
+An AI agent can say the work is done. But who authorized it, and where is the proof?
 
-## 0:10–0:19 — Product
+## 0:02–0:11 — Product
 
-ArcadeOps Relay lets a browser agent delegate work to AI workers through native WebMCP, while a human retains authority. Both see the same live, authoritative project state.
+Meet ArcadeOps Relay. In Project Aurora, a browser agent gets seven native WebMCP actions. Not a chat box. Not a DOM script.
 
-## 0:19–0:33 — Discovery
+## 0:11–0:20 — Inspect
 
-This is Project Aurora: a staged release due tomorrow, one blocked validation task, and strict rules forbidding production changes or external contact. The page registers seven intent-level tools. The browser agent calls inspect project—not the DOM—and receives the objective, constraints, permissions, risk ceiling, and safe next actions.
+First, it inspects tomorrow's release. One validation is blocked. Production changes and external contact are forbidden.
 
-## 0:33–0:46 — Planning
+## 0:20–0:31 — Plan
 
-It drafts a bounded mission plan. The phases, cost cap, acceptance criteria, required evidence, and likely human decisions appear immediately in ArcadeOps. Drafting does not silently launch work.
+Next, it drafts a bounded mission: phases, dependencies, a hard cost cap, and four evidence checks. The plan appears live in the workspace.
 
-## 0:46–1:00 — Delegation
+## 0:31–0:42 — Delegate
 
-Now the browser agent launches one persisted worker mission with a signed plan handle. The server enforces the tool allowlist, budget, session boundary, and idempotency. The worker creates a real pre-decision analysis, then the mission pauses.
+Now the browser delegates to a release worker. ArcadeOps persists the run, enforces the allowlist, and stops exactly where human judgment starts.
 
-## 1:00–1:14 — Human decision
+## 0:42–0:55 — Human decision
 
-The Decisions Inbox explains why the release strategy requires a human, what the agent may do, and the consequences of staging or postponing. There is no approval tool in WebMCP. I choose a staged release with documented residual risk.
+Here it is. Stage the release with documented residual risk, or postpone? The agent can explain the tradeoff. It cannot approve itself.
 
-## 1:14–1:28 — Continuation
+I choose the staged release.
 
-The browser agent observes that separate decision and resumes the exact persisted run. Stale, replayed, cross-session, or duplicated calls fail closed or return the existing result. The worker produces the release-readiness summary and rollback plan—without contacting anyone or changing production.
+## 0:55–1:05 — Resume
 
-## 1:28–1:41 — Proof
+The same run resumes from its signed context. The worker finishes the release summary and rollback plan. Nothing touched production. Nobody was contacted.
 
-Completion alone is not verification. ArcadeOps evaluates four required checks. All pass, creating a canonical evidence-pack hash. I accept that exact version. Relay issues an Ed25519 release certificate binding the run, decision, artifacts, and acceptance. The browser agent verifies both its hash and signature: certificate valid.
+## 1:05–1:16 — Prove
 
-## 1:41–1:48 — Closing
+Then the important part: verification. Four checks pass. I accept this exact evidence pack, and Relay issues a signed Ed25519 certificate. Valid.
 
-ArcadeOps Relay turns browser agents into accountable managers of AI work: humans set authority, agents execute, and evidence proves the result.
+## 1:16–1:20 — Closing
+
+One shared workspace. Agents execute. Humans decide. Evidence proves it.
 
 ## Pronunciation notes
 

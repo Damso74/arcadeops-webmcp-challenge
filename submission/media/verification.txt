@@ -2,20 +2,20 @@ ArcadeOps Relay media verification
 Generated: 2026-09-01
 
 Video: arcadeops-relay-webmcp-demo.mp4
-SHA-256: 15f9baf4efd7b1b1690a68987f3794e4f2d772489f8c4380df8ce24db184ec87
-Bytes: 8582274
-Duration: 00:01:48.00
+SHA-256: 2157f6d2e480df5b098c4a52a92ef047dfd71672a540111429ee6f7fd1464464
+Bytes: 5501822
+Duration: 00:01:16.00
 Video: H.264 High, 1920x1080, 25 fps, yuv420p
 Audio: AAC LC, 48 kHz, mono
-Integrated loudness: -16.54 LUFS
-True peak: -1.38 dBTP
+Integrated loudness: -16.6 LUFS
+True peak: -1.5 dBTP
 Captions: English, burned in; source SRT retained
-Black-frame result: intentional dark editorial title card occupies the initial 2.2 seconds; no unintended black segment
-Final silence: approximately 3 seconds over the visible verified-certificate state
+Black-frame result: intentional dark editorial title card occupies the initial 1.6 seconds; no unintended black segment
+Final silence: 2.93 seconds over the visible verified-certificate state
 
 Thumbnail: arcadeops-relay-thumbnail.png
-SHA-256: 544040f876a8dee30b2f6888a63846228a7dc324deb1973c6cf94d63158c6eb5
-Bytes: 200572
+SHA-256: aae07ccaeac3148dc64b202fabe8f407302b8f1e1c52bf5eba4cca49e5df43b3
+Bytes: 175553
 Dimensions: 1280x720
 
 Inspection: title card, six numbered sequence states including final certificate, codec metadata,

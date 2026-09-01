@@ -48,14 +48,16 @@ The parent ArcadeOps challenge branch begins with:
 - `8b683727` — flat Project Aurora operations layout and eight reusable UI primitives.
 - `8d75bfe1` — deployment archive exclusion.
 - `21c1999b` — Catalyst-inspired operations refinement: grouped navigation, discreet WebMCP command, actionable review controls, and deterministic test isolation.
+- `d8a1bb12` — Codex-inspired mission hierarchy: progress rail, activity-first workspace, and collapsed WebMCP developer details.
+- `79ee6bef` — Codex workbench interaction pass: compact project chrome, real section tabs, inline action results, and a unified authority-and-proof review panel.
 
-The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The verified public runtime/UI head before final media packaging is `955f91793173a7026b15df14cfc0b2261468b81e`.
+The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The deployed challenge UI is `79ee6bef`; synchronizing this final UI/media revision to the already-public export remains part of the consolidated publication gate.
 
 ## Deployment and publication
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
-- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed after the flat operations redesign. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later redesign did not alter its WebMCP adapter or server contracts.
-- Media: final deployed-app capture rendered at 1920×1080, 1:48.00, H.264/AAC, with English narration, six paced product sequences, functional punch-ins, and burned captions; video SHA-256 `15f9baf4efd7b1b1690a68987f3794e4f2d772489f8c4380df8ce24db184ec87`; thumbnail SHA-256 `544040f876a8dee30b2f6888a63846228a7dc324deb1973c6cf94d63158c6eb5`.
+- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed on UI commit `79ee6bef`. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later workbench refactor did not alter its WebMCP adapter or server contracts.
+- Media: final deployed-app capture rendered at 1920×1080, 1:16.00, H.264/AAC, with native-cadence ElevenLabs Liam narration, six fast product sequences, functional punch-ins, and burned captions; video SHA-256 `2157f6d2e480df5b098c4a52a92ef047dfd71672a540111429ee6f7fd1464464`; thumbnail SHA-256 `aae07ccaeac3148dc64b202fabe8f407302b8f1e1c52bf5eba4cca49e5df43b3`.
 - YouTube and Devpost: not yet claimed.
 
 ## Known limitations

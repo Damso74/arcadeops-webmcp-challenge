@@ -8,6 +8,8 @@ playwright-report
 test-results
 video/captures
 video/rendered
+video/assets
+submission/media
 .env*
 *.sqlite*
 *.log

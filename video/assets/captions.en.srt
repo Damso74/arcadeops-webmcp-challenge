@@ -1,135 +1,83 @@
 1
-00:00:02,200 --> 00:00:05,480
-AI agents can perform work, but teams still need to
+00:00:01,200 --> 00:00:04,633
+An AI agent can say the work is done.
 
 2
-00:00:05,480 --> 00:00:08,760
-know who authorized an action, whether the result is real,
+00:00:04,633 --> 00:00:08,067
+But who authorized it, and where is the proof?
 
 3
-00:00:08,760 --> 00:00:12,040
-and what evidence supports it. ArcadeOps Relay lets a browser
+00:00:08,067 --> 00:00:11,881
+Meet ArcadeOps Relay. In Project Aurora, a browser agent gets
 
 4
-00:00:12,040 --> 00:00:15,319
-agent delegate work to AI workers through native Web M
+00:00:11,881 --> 00:00:14,552
+seven native Web M C P actions.
 
 5
-00:00:15,319 --> 00:00:17,615
-C P, while a human retains authority.
+00:00:14,552 --> 00:00:17,604
+Not a chat box. Not a DOM script.
 
 6
-00:00:17,615 --> 00:00:20,239
-Both see the same live, authoritative project state.
+00:00:17,604 --> 00:00:21,037
+First, it inspects tomorrow's release. One validation is blocked.
 
 7
-00:00:20,239 --> 00:00:23,519
-This is Project Aurora: a staged release due tomorrow, one
+00:00:21,037 --> 00:00:23,707
+Production changes and external contact are forbidden.
 
 8
-00:00:23,519 --> 00:00:26,799
-blocked validation task, and strict rules forbidding production changes or
+00:00:23,707 --> 00:00:27,522
+Next, it drafts a bounded mission: phases, dependencies, a hard
 
 9
-00:00:26,799 --> 00:00:29,423
-external contact. The page registers seven intent-level tools.
+00:00:27,522 --> 00:00:31,337
+cost cap, and four evidence checks. The plan appears live
 
 10
-00:00:29,423 --> 00:00:32,703
-The browser agent calls inspect project—not the DOM—and receives the
+00:00:31,337 --> 00:00:35,152
+in the workspace. Now the browser delegates to a release
 
 11
-00:00:32,703 --> 00:00:35,655
-objective, constraints, permissions, risk ceiling, and safe next actions.
+00:00:35,152 --> 00:00:38,967
+worker. ArcadeOps persists the run, enforces the allowlist, and stops
 
 12
-00:00:35,655 --> 00:00:38,935
-It drafts a bounded mission plan. The phases, cost cap,
+00:00:38,967 --> 00:00:42,019
+exactly where human judgment starts. Here it is.
 
 13
-00:00:38,935 --> 00:00:42,214
-acceptance criteria, required evidence, and likely human decisions appear immediately
+00:00:42,019 --> 00:00:45,452
+Stage the release with documented residual risk, or postpone?
 
 14
-00:00:42,214 --> 00:00:44,838
-in ArcadeOps. Drafting does not silently launch work.
+00:00:45,452 --> 00:00:49,267
+The agent can explain the tradeoff. It cannot approve itself.
 
 15
-00:00:44,838 --> 00:00:48,118
-Now the browser agent launches one persisted worker mission with
+00:00:49,267 --> 00:00:53,081
+I choose the staged release. The same run resumes from
 
 16
-00:00:48,118 --> 00:00:51,398
-a signed plan handle. The server enforces the tool allowlist,
+00:00:53,081 --> 00:00:56,896
+its signed context. The worker finishes the release summary and
 
 17
-00:00:51,398 --> 00:00:54,678
-budget, session boundary, and idempotency. The worker creates a real
+00:00:56,896 --> 00:00:59,948
+rollback plan. Nothing touched production. Nobody was contacted.
 
 18
-00:00:54,678 --> 00:00:57,958
-pre-decision analysis, then the mission pauses. The Decisions Inbox explains
+00:00:59,948 --> 00:01:03,000
+Then the important part: verification. Four checks pass.
 
 19
-00:00:57,958 --> 00:01:01,238
-why the release strategy requires a human, what the agent
+00:01:03,000 --> 00:01:06,815
+I accept this exact evidence pack, and Relay issues a
 
 20
-00:01:01,238 --> 00:01:04,190
-may do, and the consequences of staging or postponing.
+00:01:06,815 --> 00:01:10,630
+signed Ed twenty-five five nineteen certificate. Valid. One shared workspace.
 
 21
-00:01:04,190 --> 00:01:07,469
-There is no approval tool in Web M C P.
-
-22
-00:01:07,469 --> 00:01:10,421
-I choose a staged release with documented residual risk.
-
-23
-00:01:10,421 --> 00:01:13,701
-The browser agent observes that separate decision and resumes the
-
-24
-00:01:13,701 --> 00:01:16,981
-exact persisted run. Stale, replayed, cross-session, or duplicated calls fail
-
-25
-00:01:16,981 --> 00:01:20,261
-closed or return the existing result. The worker produces the
-
-26
-00:01:20,261 --> 00:01:23,541
-release-readiness summary and rollback plan—without contacting anyone or changing production.
-
-27
-00:01:23,541 --> 00:01:26,821
-Completion alone is not verification. ArcadeOps evaluates four required checks.
-
-28
-00:01:26,821 --> 00:01:29,117
-All pass, creating a canonical evidence-pack hash.
-
-29
-00:01:29,117 --> 00:01:32,397
-I accept that exact version. Relay issues an Ed twenty-five
-
-30
-00:01:32,397 --> 00:01:35,676
-five nineteen release certificate binding the run, decision, artifacts, and
-
-31
-00:01:35,676 --> 00:01:38,956
-acceptance. The browser agent verifies both its hash and signature:
-
-32
-00:01:38,956 --> 00:01:42,236
-certificate valid. ArcadeOps Relay turns browser agents into accountable managers
-
-33
-00:01:42,236 --> 00:01:45,516
-of AI work: humans set authority, agents execute, and evidence
-
-34
-00:01:45,516 --> 00:01:46,500
-proves the result.
+00:01:10,630 --> 00:01:13,300
+Agents execute. Humans decide. Evidence proves it.

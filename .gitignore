@@ -14,6 +14,7 @@ test-results/
 video/rendered/
 video/captures/
 video/assets/narration-master.mp3
+video/assets/narration-master-*.mp3
 video/assets/narration-final.wav
 submission/media/*-pre-*
 *.log

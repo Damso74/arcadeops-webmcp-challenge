@@ -1,17 +1,19 @@
-AI agents can perform work, but teams still need to know who authorized an action, whether the result is real, and what evidence supports it.
+An AI agent can say the work is done. But who authorized it, and where is the proof?
 
-ArcadeOps Relay lets a browser agent delegate work to AI workers through native Web M C P, while a human retains authority. Both see the same live, authoritative project state.
+Meet ArcadeOps Relay. In Project Aurora, a browser agent gets seven native Web M C P actions. Not a chat box. Not a DOM script.
 
-This is Project Aurora: a staged release due tomorrow, one blocked validation task, and strict rules forbidding production changes or external contact. The page registers seven intent-level tools. The browser agent calls inspect project—not the DOM—and receives the objective, constraints, permissions, risk ceiling, and safe next actions.
+First, it inspects tomorrow's release. One validation is blocked. Production changes and external contact are forbidden.
 
-It drafts a bounded mission plan. The phases, cost cap, acceptance criteria, required evidence, and likely human decisions appear immediately in ArcadeOps. Drafting does not silently launch work.
+Next, it drafts a bounded mission: phases, dependencies, a hard cost cap, and four evidence checks. The plan appears live in the workspace.
 
-Now the browser agent launches one persisted worker mission with a signed plan handle. The server enforces the tool allowlist, budget, session boundary, and idempotency. The worker creates a real pre-decision analysis, then the mission pauses.
+Now the browser delegates to a release worker. ArcadeOps persists the run, enforces the allowlist, and stops exactly where human judgment starts.
 
-The Decisions Inbox explains why the release strategy requires a human, what the agent may do, and the consequences of staging or postponing. There is no approval tool in Web M C P. I choose a staged release with documented residual risk.
+Here it is. Stage the release with documented residual risk, or postpone? The agent can explain the tradeoff. It cannot approve itself.
 
-The browser agent observes that separate decision and resumes the exact persisted run. Stale, replayed, cross-session, or duplicated calls fail closed or return the existing result. The worker produces the release-readiness summary and rollback plan—without contacting anyone or changing production.
+I choose the staged release.
 
-Completion alone is not verification. ArcadeOps evaluates four required checks. All pass, creating a canonical evidence-pack hash. I accept that exact version. Relay issues an Ed twenty-five five nineteen release certificate binding the run, decision, artifacts, and acceptance. The browser agent verifies both its hash and signature: certificate valid.
+The same run resumes from its signed context. The worker finishes the release summary and rollback plan. Nothing touched production. Nobody was contacted.
 
-ArcadeOps Relay turns browser agents into accountable managers of AI work: humans set authority, agents execute, and evidence proves the result.
+Then the important part: verification. Four checks pass. I accept this exact evidence pack, and Relay issues a signed Ed twenty-five five nineteen certificate. Valid.
+
+One shared workspace. Agents execute. Humans decide. Evidence proves it.

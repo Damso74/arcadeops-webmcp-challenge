@@ -36,7 +36,7 @@ await context.addInitScript(() => {
 const page = await context.newPage();
 const video = page.video();
 await page.goto(liveUrl, { waitUntil: "networkidle" });
-await page.getByText("WebMCP connected · 7 tools").waitFor();
+await page.waitForFunction(() => window.__videoWebMcpTools?.length === 7);
 
 await page.evaluate(() => {
   const callout = document.createElement("div");
@@ -87,21 +87,21 @@ async function invoke(name, input = {}) {
 }
 
 await page.getByRole("button", { name: "Run review" }).click();
-await page.waitForTimeout(7_000);
+await page.waitForTimeout(1_500);
 
 await callout("Native WebMCP tools");
 await invoke("inspect_project");
-await page.waitForTimeout(10_000);
+await page.waitForTimeout(8_000);
 
 await callout("Browser agent drafts the mission");
 const drafted = await invoke("draft_mission_plan");
 await page.getByText("Mission plan · v1").waitFor();
-await page.waitForTimeout(14_000);
+await page.waitForTimeout(9_000);
 
 await callout("Browser agent delegates");
 const launched = await invoke("launch_mission", { planHandle: drafted.data.planHandle });
 await page.getByText("Human decision required").waitFor();
-await page.waitForTimeout(13_000);
+await page.waitForTimeout(9_000);
 
 await callout("Human decision required");
 await invoke("explain_block", { runHandle: launched.data.runHandle });
@@ -109,7 +109,7 @@ await page.getByRole("button", { name: /Stage the release/ }).focus();
 await page.waitForTimeout(16_000);
 await page.getByRole("button", { name: /Stage the release/ }).click();
 await page.locator(".decision-result").getByText("staged release").waitFor();
-await page.waitForTimeout(4_000);
+await page.waitForTimeout(2_000);
 
 await callout("Mission resumes safely");
 await invoke("observe_run", { runHandle: launched.data.runHandle });
@@ -118,16 +118,16 @@ await invoke("resume_after_human_decision", {
   decisionRef: launched.decisionRef,
 });
 await page.getByText("4 required evidence checks", { exact: false }).waitFor();
-await page.waitForTimeout(16_000);
+await page.waitForTimeout(7_000);
 
 await callout("Evidence verified");
 await page.getByRole("button", { name: "Accept this exact evidence pack" }).focus();
-await page.waitForTimeout(11_000);
+await page.waitForTimeout(4_000);
 await page.getByRole("button", { name: "Accept this exact evidence pack" }).click();
 await page.getByText("VALID", { exact: true }).waitFor();
 await invoke("verify_delivery", { runHandle: launched.data.runHandle });
 await callout("Certificate valid");
-await page.waitForTimeout(14_000);
+await page.waitForTimeout(5_000);
 
 await context.close();
 await video.saveAs(outputPath);

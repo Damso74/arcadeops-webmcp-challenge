@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-01T15:11:52Z",
+  "voice": "Liam - Energetic, Social Media Creator",
+  "model": "Eleven Multilingual v2",
+  "language": "English",
+  "speed": 1.2,
+  "stability": 0.42,
+  "similarity": 0.75,
+  "styleExaggeration": 0.15,
+  "speakerBoost": true,
+  "output": "MP3 44.1 kHz 128 kbps mono",
+  "sourceWords": 189,
+  "generatedDurationSeconds": 72.12,
+  "masterSha256": "413c2c567d862670c7851a779022122411ec8ed23145a810fdc56acff99313c9",
+  "postProduction": "Delay, loudness normalization, resampling, padding, and trim only. No tempo or pitch processing."
+}

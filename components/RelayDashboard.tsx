@@ -13,7 +13,9 @@ import {
   LayoutDashboard,
   ListChecks,
   MoreHorizontal,
+  PanelRight,
   Play,
+  Search,
   Settings,
   ShieldCheck,
   Target,
@@ -57,6 +59,7 @@ type SessionView = {
 
 type SessionResponse = { ok: boolean; session?: SessionView; errorCode?: string };
 type Tone = "neutral" | "info" | "success" | "warning" | "danger";
+type ProjectSection = "mission" | "activity" | "readiness" | "deliverables";
 
 const judgePrompt =
   "Inspect Project Aurora, prepare a safe release mission, delegate the work, stop for any required human decision, and verify the final delivery. Do not bypass approvals or modify production.";
@@ -134,21 +137,47 @@ function EmptyState({ children }: { children: ReactNode }) {
   return <p className="empty-state">{children}</p>;
 }
 
-function PageHeader({ session, webMcp, busy, onRun }: { session: SessionView; webMcp: { connected: boolean; count: number }; busy: string | null; onRun: () => void }) {
+function PageHeader({ session, busy, onRun }: { session: SessionView; busy: string | null; onRun: () => void }) {
   const completed = session.project.tasks.filter((task) => task.status === "COMPLETED").length;
   return (
     <header className="page-header" id="project">
       <div className="page-header-main">
-        <h1>{session.project.name}</h1>
-        <MetadataList items={[<StatusDot key="review" label="Release review" tone="info" />, "Due tomorrow", `${completed}/${session.project.tasks.length} checks complete`, `Revision ${session.revision}`]} />
+        <div className="project-title"><span aria-hidden="true">PA</span><div><h1>{session.project.name}</h1><MetadataList items={[<StatusDot key="review" label="Release review" tone="info" />, "Due tomorrow", `${completed}/${session.project.tasks.length} checks complete`, `Revision ${session.revision}`]} /></div></div>
         <p>{session.project.objective}</p>
       </div>
       <div className="page-actions">
-        <StatusDot label={webMcp.connected ? `WebMCP connected · ${webMcp.count} tools` : "WebMCP unavailable"} tone={webMcp.connected ? "success" : "warning"} />
         <button className="button button-primary" disabled={busy !== null} onClick={onRun} type="button"><Play aria-hidden="true" size={14} />{busy === "reset" ? "Preparing…" : "Run review"}</button>
         <button aria-label="More actions" className="icon-button" title="More actions" type="button"><MoreHorizontal aria-hidden="true" size={18} /></button>
       </div>
     </header>
+  );
+}
+
+function MissionProgress({ session }: { session: SessionView }) {
+  const stages = [
+    { label: "Inspect", complete: session.events.some((event) => event.kind === "PROJECT_INSPECTED") },
+    { label: "Plan", complete: session.plan !== null },
+    { label: "Delegate", complete: session.run !== null },
+    { label: "Decide", complete: session.decision?.status === "APPROVED" },
+    { label: "Verify", complete: session.delivery?.certificate !== null },
+  ];
+  const currentIndex = Math.min(stages.findIndex((stage) => !stage.complete), stages.length - 1);
+
+  return (
+    <section className="mission-progress" aria-label="Mission progress">
+      <div>
+        <span className="mission-kicker">Current mission</span>
+        <strong>Safe staged release</strong>
+      </div>
+      <ol>
+        {stages.map((stage, index) => (
+          <li className={stage.complete ? "complete" : index === currentIndex ? "current" : ""} key={stage.label}>
+            <span aria-hidden="true">{stage.complete ? <Check size={12} /> : index + 1}</span>
+            <em>{stage.label}</em>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }
 
@@ -181,7 +210,7 @@ function ActivityFeed({ events }: { events: SessionView["events"] }) {
           <span className={`feed-node actor-${entry.actor}`} aria-hidden="true" />
           <div className="feed-content">
             <div><strong>{actorLabel(entry.actor)}</strong><time dateTime={entry.at}>{new Date(entry.at).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}</time></div>
-            <p>{entry.summary}</p><code>{eventLabel(entry.kind)}</code>
+            <p>{entry.summary}</p><div className="event-result"><code>{eventLabel(entry.kind)}</code><ChevronRight aria-hidden="true" size={12} /></div>
           </div>
         </li>
       ))}
@@ -195,7 +224,7 @@ function ReviewPanel({ session, busy, onHumanAction }: { session: SessionView; b
   const remainingExecutions = Math.max(0, session.maxLaunches - session.launchCount);
   return (
     <aside className="review-panel" id="review" aria-labelledby="review-title">
-      <div className="review-heading"><h2 id="review-title">Review &amp; controls</h2><StatusDot label={pending ? "Action required" : "No action required"} tone={pending ? "warning" : "success"} /></div>
+      <div className="review-heading"><div><span>Authority &amp; proof</span><h2 id="review-title"><PanelRight aria-hidden="true" size={14} />Review</h2></div><StatusDot label={pending ? "Action required" : "Clear"} tone={pending ? "warning" : "success"} /></div>
       <section className="review-section">
         <h3>Release review</h3>
         {pending && session.decisionRef ? (
@@ -249,6 +278,7 @@ export function RelayDashboard() {
   const [error, setError] = useState<string | null>(null);
   const [webMcp, setWebMcp] = useState({ connected: false, count: 0 });
   const [copied, setCopied] = useState(false);
+  const [activeSection, setActiveSection] = useState<ProjectSection>("mission");
 
   const load = useCallback(async () => {
     try {
@@ -297,7 +327,7 @@ export function RelayDashboard() {
   return (
     <main className="operations-shell" id="overview">
       <aside className="app-sidebar" aria-label="Main navigation">
-        <div className="brand-block"><span className="brand-mark" aria-hidden="true">AO</span><div><strong>ArcadeOps</strong><span>Operations</span></div></div>
+        <div className="brand-block"><span className="brand-mark" aria-hidden="true">AO</span><div><strong>ArcadeOps</strong><span>Relay workspace</span></div><MoreHorizontal aria-hidden="true" size={15} /></div>
         <nav className="business-nav" aria-label="Main navigation">
           <div className="nav-group"><span className="nav-group-label">Workspace</span>{workspaceNavigation.map(({ label, href, icon: Icon, active }) => <a className={active ? "active" : ""} href={href} key={label}><Icon aria-hidden="true" size={16} strokeWidth={1.8} /><span>{label}</span></a>)}</div>
           <div className="nav-group"><span className="nav-group-label">Operations</span>{operationsNavigation.map(({ label, href, icon: Icon, active }) => <a className={active ? "active" : ""} href={href} key={label}><Icon aria-hidden="true" size={16} strokeWidth={1.8} /><span>{label}</span>{label === "Reviews" && session.decision?.status === "PENDING" ? <i className="nav-attention" aria-label="1 pending review" /> : null}</a>)}</div>
@@ -306,31 +336,28 @@ export function RelayDashboard() {
         <div className="sidebar-note"><ShieldCheck aria-hidden="true" size={15} /><div><strong>Isolated workspace</strong><span>Synthetic data · no external actions</span></div></div>
       </aside>
       <div className="workspace-shell">
-        <div className="topbar"><div className="breadcrumbs"><span>Projects</span><ChevronRight aria-hidden="true" size={13} /><strong>{session.project.name}</strong></div></div>
+        <div className="topbar"><div className="breadcrumbs"><span>Projects</span><ChevronRight aria-hidden="true" size={13} /><strong>{session.project.name}</strong></div><div className="topbar-tools"><div className="command-hint"><Search aria-hidden="true" size={13} /><span>Search or run</span><kbd>Ctrl K</kbd></div><StatusDot label="Isolated" tone="success" /></div></div>
         <div className="workspace-content">
-          <PageHeader session={session} webMcp={webMcp} busy={busy} onRun={() => void resetDemo()} />
-          <nav className="project-tabs" aria-label="Project sections"><a className="active" href="#overview">Overview</a><a href="#readiness">Readiness</a><a href="#activity">Activity</a><a href="#evidence">Deliverables</a></nav>
+          <PageHeader session={session} busy={busy} onRun={() => void resetDemo()} />
+          <nav className="project-tabs" aria-label="Project sections" role="tablist">{([['mission', 'Mission'], ['activity', 'Activity'], ['readiness', 'Readiness'], ['deliverables', 'Deliverables']] as const).map(([id, label]) => <button aria-controls={`panel-${id}`} aria-selected={activeSection === id} className={activeSection === id ? "active" : ""} id={`tab-${id}`} key={id} onClick={() => setActiveSection(id)} role="tab" type="button">{label}</button>)}</nav>
           {error ? <div className="error-banner" role="alert">Request refused: {error}. Refresh before retrying.</div> : null}
-          <CommandBar copied={copied} onCopy={() => void copyPrompt()} />
           <div className="project-layout">
-            <div className="project-main">
-              <section className="content-section" id="readiness" aria-labelledby="readiness-title">
-                <div className="section-heading"><div><h2 id="readiness-title">Release readiness</h2><p>{completedTasks} checks complete, one validation remains blocked.</p></div><StatusDot label={session.run?.state || "Not started"} tone={stateTone(session.run?.state || "")} /></div>
-                <div className="constraints-block"><h3>Operating constraints</h3><ul>{session.project.constraints.map((constraint) => <li key={constraint}><Check aria-hidden="true" size={13} />{constraint}</li>)}</ul></div>
-                <DataTable tasks={session.project.tasks} />
-              </section>
-              <section className="content-section" id="mission" aria-labelledby="plan-title">
-                <div className="section-heading"><div><h2 id="plan-title">{session.plan ? `Mission plan · v${session.plan.version}` : "Mission plan"}</h2><p>{session.plan ? `Budget $${session.plan.budgetUsd.toFixed(3)} · ${session.plan.requiredEvidence.length} required evidence checks` : "No release plan has been created."}</p></div>{session.plan ? <StatusDot label="Prepared" tone="info" /> : null}</div>
-                {session.plan ? <ol className="phase-list">{session.plan.phases.map((phase, index) => <li key={phase.name}><span>{String(index + 1).padStart(2, "0")}</span><strong>{phase.name}</strong><p>{phase.tasks.join(" · ")}</p></li>)}</ol> : <EmptyState>Use the available WebMCP command to prepare a release plan.</EmptyState>}
-              </section>
-              <section className="content-section" id="activity" aria-labelledby="activity-title">
-                <div className="section-heading"><div><h2 id="activity-title">Execution</h2><p>{session.run ? session.run.currentStep : "No active execution."}</p></div><MetadataList items={[`$${session.run?.costUsd.toFixed(3) || "0.000"} cost`, session.run?.costTruth || "No usage"]} /></div>
-                <ActivityFeed events={session.events} />
-              </section>
+            <div aria-labelledby={`tab-${activeSection}`} className="project-main" id={`panel-${activeSection}`} role="tabpanel">
+              {activeSection === "mission" ? <>
+                <MissionProgress session={session} />
+                <section className="content-section activity-section" id="activity" aria-labelledby="activity-title"><div className="section-heading"><div><span className="section-eyebrow">Live execution</span><h2 id="activity-title">Mission activity</h2><p>{session.run ? session.run.currentStep : "Waiting for the browser operator to inspect the project."}</p></div><MetadataList items={[`$${session.run?.costUsd.toFixed(3) || "0.000"} cost`, session.run?.costTruth || "No usage"]} /></div><ActivityFeed events={session.events} /></section>
+                <section className="content-section" id="mission" aria-labelledby="plan-title"><div className="section-heading"><div><span className="section-eyebrow">Working context</span><h2 id="plan-title">{session.plan ? `Mission plan · v${session.plan.version}` : "Mission plan"}</h2><p>{session.plan ? `Budget $${session.plan.budgetUsd.toFixed(3)} · ${session.plan.requiredEvidence.length} required evidence checks` : "No release plan has been created."}</p></div>{session.plan ? <StatusDot label="Prepared" tone="info" /> : null}</div>{session.plan ? <ol className="phase-list">{session.plan.phases.map((phase, index) => <li key={phase.name}><span>{String(index + 1).padStart(2, "0")}</span><strong>{phase.name}</strong><p>{phase.tasks.join(" · ")}</p></li>)}</ol> : <EmptyState>Use the available WebMCP command to prepare a release plan.</EmptyState>}</section>
+              </> : null}
+              {activeSection === "activity" ? <section className="content-section activity-section standalone-section" id="activity-log" aria-labelledby="activity-log-title"><div className="section-heading"><div><span className="section-eyebrow">Full log</span><h2 id="activity-log-title">Execution activity</h2><p>Authoritative human, browser, worker, and ArcadeOps events.</p></div><MetadataList items={[`${session.events.length} events`, `Revision ${session.revision}`]} /></div><ActivityFeed events={session.events} /></section> : null}
+              {activeSection === "readiness" ? <section className="content-section standalone-section" id="readiness" aria-labelledby="readiness-title"><div className="section-heading"><div><span className="section-eyebrow">Release gate</span><h2 id="readiness-title">Release readiness</h2><p>{completedTasks} checks complete, one validation remains blocked.</p></div><StatusDot label={session.run?.state || "Not started"} tone={stateTone(session.run?.state || "")} /></div><div className="constraints-block"><h3>Operating constraints</h3><ul>{session.project.constraints.map((constraint) => <li key={constraint}><Check aria-hidden="true" size={13} />{constraint}</li>)}</ul></div><DataTable tasks={session.project.tasks} /></section> : null}
+              {activeSection === "deliverables" ? <section className="content-section standalone-section" id="deliverables" aria-labelledby="deliverables-title"><div className="section-heading"><div><span className="section-eyebrow">Verified output</span><h2 id="deliverables-title">Deliverables</h2><p>Artifacts remain bound to the reviewed evidence pack.</p></div><StatusDot label={session.delivery?.certificate ? "Certificate valid" : "Awaiting verification"} tone={session.delivery?.certificate ? "success" : "neutral"} /></div>{session.evidence ? <div className="deliverable-list">{session.evidence.artifactRefs.map((id) => <a href={`/api/artifacts/${encodeURIComponent(id)}`} key={id} rel="noreferrer" target="_blank"><FileCheck2 aria-hidden="true" size={15} /><span><strong>{session.artifacts[id]?.name || id}</strong><code>{shortHash(session.artifacts[id]?.sha256 || id)}</code></span><ChevronRight aria-hidden="true" size={14} /></a>)}</div> : <EmptyState>Deliverables appear after the worker finishes and evidence is evaluated.</EmptyState>}</section> : null}
             </div>
             <ReviewPanel session={session} busy={busy} onHumanAction={(body, label) => void humanAction(body, label)} />
           </div>
-          <footer><span>All data is synthetic · no production access · no external actions</span><span>Session expires {new Date(session.expiresAt).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" })}</span></footer>
+          <footer>
+            <details className="developer-tools"><summary><StatusDot label={webMcp.connected ? `WebMCP connected · ${webMcp.count} tools` : "WebMCP unavailable"} tone={webMcp.connected ? "success" : "warning"} /></summary><CommandBar copied={copied} onCopy={() => void copyPrompt()} /></details>
+            <span>All data is synthetic · no production access · no external actions</span><span>Session expires {new Date(session.expiresAt).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" })}</span>
+          </footer>
         </div>
       </div>
     </main>

@@ -16,8 +16,8 @@ for (let cursor = 0; cursor < words.length; ) {
   cursor = end;
 }
 
-const speechStart = 2.2;
-const speechEnd = 106.5;
+const speechStart = 1.2;
+const speechEnd = 73.3;
 const secondsPerWord = (speechEnd - speechStart) / words.length;
 
 function timestamp(seconds) {
