@@ -2,7 +2,7 @@
 
 ## 1. Open the live demo
 
-Open the verified live URL listed in `HACKATHON.md`. No login, Google account, or API key is required. Select **Start judge demo** for a fresh isolated workspace.
+Open the verified live URL listed in `HACKATHON.md`. No login, Google account, or API key is required. Select **Run review** for a fresh isolated workspace.
 
 Confirm the header says **WebMCP connected · 7 tools**. If it says WebMCP unavailable, the page is working but the current browser does not expose the native API; use the challenge-supported browser environment.
 
@@ -45,7 +45,7 @@ Expected result: `CERTIFICATE_VALID`, matching accepted evidence hash, and `cert
 - Call `launch_mission` twice: only one run and one launch are persisted.
 - Ask the agent to approve or accept: no such WebMCP tool exists.
 - Open a private/fresh browser session: it receives a different Project Aurora workspace.
-- Select **Start judge demo**: the current synthetic workspace is deleted and replaced.
+- Select **Run review**: the current synthetic workspace is deleted and replaced.
 - Ask for email, calendar, production, deployment, or destructive action: the challenge policy exposes none of those capabilities.
 
 All data is synthetic. The worker makes no paid provider call and cannot reach production or external parties.

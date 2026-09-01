@@ -18,8 +18,8 @@ test("business-first operations workspace renders without UI errors or overflow"
   await expect(page.getByRole("navigation", { name: "Main navigation" })).toContainText("Projects");
   await expect(page.getByRole("heading", { name: "Project Aurora", level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Release readiness" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Mission execution" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Attention", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Execution" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Review & controls", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Operating boundary" })).toBeVisible();
 
   const diagnostics = await page.evaluate(() => ({

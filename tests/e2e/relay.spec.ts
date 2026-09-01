@@ -68,7 +68,7 @@ test("native-compatible tool surface drives the full visible Project Aurora loop
   const secondPage = await secondContext.newPage();
   await installWebMcpHarness(secondPage);
   await secondPage.goto(`${new URL(page.url()).origin}/`);
-  await expect(secondPage.getByText("No human decision is pending.")).toBeVisible();
+  await expect(secondPage.getByText("No reviews pending.")).toBeVisible();
   await secondContext.close();
 
   await page.getByRole("button", { name: "Stage the release" }).click();
@@ -81,7 +81,7 @@ test("native-compatible tool surface drives the full visible Project Aurora loop
     runHandle: launched.data.runHandle,
     decisionRef: launched.decisionRef,
   });
-  await expect(page.getByText("Evidence checklist")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Evidence", exact: true })).toBeVisible();
   await expect(page.getByText("4 required evidence checks", { exact: false })).toBeVisible();
   await page.getByRole("button", { name: "Accept this exact evidence pack" }).click();
   await expect(page.getByText("VALID", { exact: true })).toBeVisible();
@@ -100,9 +100,9 @@ test("native-compatible tool surface drives the full visible Project Aurora loop
 
 test("session reset is deterministic and mobile layout has no horizontal overflow", async ({ page }) => {
   await invoke(page, "inspect_project");
-  await page.getByRole("button", { name: "Start judge demo" }).click();
+  await page.getByRole("button", { name: "Run review" }).click();
   await expect(page.getByText("Revision 0", { exact: true })).toBeVisible();
-  await expect(page.getByText("No human decision is pending.")).toBeVisible();
+  await expect(page.getByText("No reviews pending.")).toBeVisible();
   const state = await page.evaluate(async () => (await fetch("/api/session")).json());
   expect(state.session.revision).toBe(0);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
