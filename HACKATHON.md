@@ -49,13 +49,13 @@ The parent ArcadeOps challenge branch begins with:
 - `8d75bfe1` — deployment archive exclusion.
 - `21c1999b` — Catalyst-inspired operations refinement: grouped navigation, discreet WebMCP command, actionable review controls, and deterministic test isolation.
 
-The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The verified public runtime/UI head before media packaging is `16459cccfa3b323ef8f6d202d8083c0d7b1ba57a`.
+The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The verified public runtime/UI head before final media packaging is `955f91793173a7026b15df14cfc0b2261468b81e`.
 
 ## Deployment and publication
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
 - Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed after the flat operations redesign. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later redesign did not alter its WebMCP adapter or server contracts.
-- Media: final deployed-app capture rendered at 1920×1080, 2:39.08, H.264/AAC, with English narration and burned captions; video SHA-256 `fd10551c8f347c0aa40df6f2dc29033799b4f0810c8750d7f77e331c2666facb`; thumbnail SHA-256 `c8047c6a57402fd4ca348b36e76ccc1413ab7b1e6911f5ec900501f6ae28c5f0`.
+- Media: final deployed-app capture rendered at 1920×1080, 2:39.06, H.264/AAC, with English narration and burned captions; video SHA-256 `9ddb67796ebdfa2e34c1e74e63dc199c718540b27c070f147a358e87614c250c`; thumbnail SHA-256 `7204e2e93025ad124b387d945b1aacc2d5488040de2c0ed383c0eb88645e9502`.
 - YouTube and Devpost: not yet claimed.
 
 ## Known limitations
