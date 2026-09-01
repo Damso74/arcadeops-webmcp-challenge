@@ -10,7 +10,7 @@ ArcadeOps Relay lets a browser agent delegate bounded work to an AI worker throu
 
 Live demo: added after verified deployment
 
-Open-source repository: added after verified publication
+Open-source repository: https://github.com/Damso74/arcadeops-webmcp-challenge
 
 Built for the OpenAI WebMCP Challenge. Relay registers seven intent-level tools with the page's native WebMCP API, shares one authoritative Project Aurora workspace between the browser agent, worker, and human, and issues a hash-verifiable Ed25519 release certificate only after evidence passes and the human accepts the exact pack.
 

@@ -26,16 +26,16 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 - [x] npm audit — PASSED (0 known vulnerabilities)
 - [x] Source secret scan — PASSED
 - [x] Prompt-only security scan contract finalized — PASSED (complete executable scope, 0 findings)
-- [ ] Clean public clone install/test/build — NOT RUN
+- [x] Clean public clone install/test/build — PASSED, including artifact route manifest
 - [ ] Deployed smoke and full scenario — NOT RUN
 
 ## Public source
 
-- [ ] Separate repository public — NOT RUN
+- [x] Separate repository public — PASSED: https://github.com/Damso74/arcadeops-webmcp-challenge
 - [x] MIT license visible — PASSED locally
 - [x] English README and judge guide — PASSED locally
 - [x] Pre-existing versus challenge work documented — PASSED locally
-- [ ] Public history secret scan — NOT RUN
+- [x] Public history secret scan — PASSED with single-purpose new history and local equivalent scanner; gitleaks unavailable
 
 ## Video
 

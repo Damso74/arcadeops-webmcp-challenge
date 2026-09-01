@@ -20,7 +20,7 @@ The bounded worker is deterministic by design: it creates actual versioned appli
 | Repository secret scan | PASSED | 46 source files at time of scan |
 | Prompt-only security scan | PASSED | complete executable runtime scope, 0 reportable findings; sealed contract `scan_arcadeops_relay_20260901` |
 | Native ChatGPT browser | NOT RUN | requires deployed compatible environment |
-| Clean clone | NOT RUN | public export not yet created at this checkpoint |
+| Clean clone | PASSED | fresh local clone, `npm ci`, secret scan, lint, typecheck, 14 tests, complete build with artifact route |
 | Deployed smoke | NOT RUN | deployment not yet created at this checkpoint |
 
 The development browser console reports React's expected CSP warning because development debugging attempts `eval`; production does not use it. The production CSP intentionally omits `unsafe-eval`.
@@ -36,4 +36,4 @@ No validated critical, high, medium, or low application vulnerability remains in
 
 ## Pending publication gates
 
-This report is updated after container deployment, public source clean-clone verification, native browser testing, media inspection, YouTube publication, and Devpost submission. A local pass is not represented as any of those external states.
+The public source is verified at <https://github.com/Damso74/arcadeops-webmcp-challenge>. This report is updated after container deployment, native browser testing, media inspection, YouTube publication, and Devpost submission. A local pass is not represented as any of those external states.

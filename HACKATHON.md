@@ -44,11 +44,12 @@ The parent ArcadeOps challenge branch begins with:
 - `4d5f5ec8ba1c1058dfc40b2f821a68acd6ec25f1` — challenge start ledger.
 - `c4cfe1f4` — complete Relay vertical slice, hardening, tests, documentation, and deployment package.
 
-The public repository starts from a new root commit so private history cannot be exposed. Its exact final commit is recorded here after publication.
+The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. Initial public commits: `3b21a25`, then `4caec79` for the artifact-route export fix.
 
 ## Deployment and publication
 
-No deployment, repository, video, or submission URL is claimed until it is publicly verified.
+- Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
+- Live deployment, YouTube, and Devpost: not yet claimed.
 
 ## Known limitations
 
