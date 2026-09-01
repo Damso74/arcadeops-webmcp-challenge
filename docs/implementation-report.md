@@ -17,7 +17,7 @@ The bounded worker is deterministic by design: it creates actual versioned appli
 | Accessibility | PASSED | Axe checks in browser suite |
 | Production build | PASSED | Next.js 16.3.4 standalone |
 | Dependency audit | PASSED | 0 known npm vulnerabilities |
-| Repository secret scan | PASSED | 74 challenge-worktree files; 69 files in the public export with final media |
+| Repository secret scan | PASSED | 74 challenge-worktree files; 65 files in the final clean public clone |
 | Prompt-only security scan | PASSED | complete executable runtime scope, 0 reportable findings; sealed contract `scan_arcadeops_relay_20260901` |
 | Native ChatGPT browser | PASSED | deployed in-app browser discovered seven tools and completed a valid certificate flow at `2026-09-01T09:41:16Z`; the subsequent UI-only refactor left the adapter and contracts unchanged |
 | Clean clone | PASSED | fresh local clone, `npm ci`, secret scan, lint, typecheck, 14 tests, complete build with artifact route |
