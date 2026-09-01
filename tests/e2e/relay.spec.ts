@@ -101,6 +101,7 @@ test("native-compatible tool surface drives the full visible Project Aurora loop
 test("session reset is deterministic and mobile layout has no horizontal overflow", async ({ page }) => {
   await invoke(page, "inspect_project");
   await page.getByRole("button", { name: "Start judge demo" }).click();
+  await expect(page.getByText("Revision 0", { exact: true })).toBeVisible();
   await expect(page.getByText("No human decision is pending.")).toBeVisible();
   const state = await page.evaluate(async () => (await fetch("/api/session")).json());
   expect(state.session.revision).toBe(0);
