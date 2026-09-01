@@ -2,22 +2,22 @@ ArcadeOps Relay media verification
 Generated: 2026-09-01
 
 Video: arcadeops-relay-webmcp-demo.mp4
-SHA-256: 9ddb67796ebdfa2e34c1e74e63dc199c718540b27c070f147a358e87614c250c
-Bytes: 11516347
-Duration: 00:02:39.06
+SHA-256: 15f9baf4efd7b1b1690a68987f3794e4f2d772489f8c4380df8ce24db184ec87
+Bytes: 8582274
+Duration: 00:01:48.00
 Video: H.264 High, 1920x1080, 25 fps, yuv420p
 Audio: AAC LC, 48 kHz, mono
-Integrated loudness: -16.57 LUFS
-True peak: -1.46 dBTP
+Integrated loudness: -16.54 LUFS
+True peak: -1.38 dBTP
 Captions: English, burned in; source SRT retained
-Black-frame result: intentional dark editorial title card occupies the initial 3.0 seconds; no unintended black segment
-Final silence: 3.56 seconds over the visible verified-certificate state
+Black-frame result: intentional dark editorial title card occupies the initial 2.2 seconds; no unintended black segment
+Final silence: approximately 3 seconds over the visible verified-certificate state
 
 Thumbnail: arcadeops-relay-thumbnail.png
-SHA-256: 7204e2e93025ad124b387d945b1aacc2d5488040de2c0ed383c0eb88645e9502
-Bytes: 201568
+SHA-256: 544040f876a8dee30b2f6888a63846228a7dc324deb1973c6cf94d63158c6eb5
+Bytes: 200572
 Dimensions: 1280x720
 
-Inspection: title card, five key frames including final certificate state, codec metadata,
+Inspection: title card, six numbered sequence states including final certificate, codec metadata,
 audio presence, loudness, captions, and privacy reviewed. No private data,
 secret, unrelated browser chrome, third-party logo, or notification is visible.

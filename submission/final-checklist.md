@@ -42,8 +42,8 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 - [x] Final English script, 270–330 words — PASSED (318 words)
 - [x] ElevenLabs narration generated and inspected — PASSED (George, Eleven v3, 318 words)
 - [x] Genuine deployed browser footage captured — PASSED (live URL, WebMCP-compatible harness)
-- [x] 1920×1080 render under 2:55 — PASSED (2:39.06, H.264/AAC)
-- [x] Audio, loudness, captions, first/final frames, and privacy inspected — PASSED (-16.57 LUFS, -1.46 dBTP)
+- [x] 1920×1080 render under 2:55 — PASSED (1:48.00, H.264/AAC)
+- [x] Audio, loudness, captions, six sequence frames, first/final frames, and privacy inspected — PASSED (-16.54 LUFS, -1.38 dBTP)
 - [x] Thumbnail 1280×720 inspected — PASSED
 - [ ] YouTube Public and signed-out URL verified — NOT RUN
 

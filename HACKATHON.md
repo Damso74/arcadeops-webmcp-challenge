@@ -55,7 +55,7 @@ The public repository starts from a new root commit so private history cannot be
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
 - Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed after the flat operations redesign. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later redesign did not alter its WebMCP adapter or server contracts.
-- Media: final deployed-app capture rendered at 1920×1080, 2:39.06, H.264/AAC, with English narration and burned captions; video SHA-256 `9ddb67796ebdfa2e34c1e74e63dc199c718540b27c070f147a358e87614c250c`; thumbnail SHA-256 `7204e2e93025ad124b387d945b1aacc2d5488040de2c0ed383c0eb88645e9502`.
+- Media: final deployed-app capture rendered at 1920×1080, 1:48.00, H.264/AAC, with English narration, six paced product sequences, functional punch-ins, and burned captions; video SHA-256 `15f9baf4efd7b1b1690a68987f3794e4f2d772489f8c4380df8ce24db184ec87`; thumbnail SHA-256 `544040f876a8dee30b2f6888a63846228a7dc324deb1973c6cf94d63158c6eb5`.
 - YouTube and Devpost: not yet claimed.
 
 ## Known limitations

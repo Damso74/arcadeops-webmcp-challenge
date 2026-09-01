@@ -43,8 +43,8 @@ await page.evaluate(() => {
   callout.id = "relay-video-callout";
   Object.assign(callout.style, {
     position: "fixed",
-    right: "28px",
-    top: "86px",
+    left: "50%",
+    top: "58px",
     zIndex: "99999",
     padding: "12px 18px",
     borderRadius: "7px",
@@ -57,8 +57,10 @@ await page.evaluate(() => {
     fontWeight: "700",
     letterSpacing: "0.01em",
     boxShadow: "none",
+    display: "none",
     opacity: "0",
     transition: "opacity .3s ease",
+    transform: "translateX(-50%)",
     pointerEvents: "none",
   });
   document.body.append(callout);
@@ -85,29 +87,29 @@ async function invoke(name, input = {}) {
 }
 
 await page.getByRole("button", { name: "Run review" }).click();
-await page.waitForTimeout(28_000);
+await page.waitForTimeout(7_000);
 
 await callout("Native WebMCP tools");
 await invoke("inspect_project");
-await page.waitForTimeout(20_000);
+await page.waitForTimeout(10_000);
 
 await callout("Browser agent drafts the mission");
 const drafted = await invoke("draft_mission_plan");
 await page.getByText("Mission plan · v1").waitFor();
-await page.waitForTimeout(20_000);
+await page.waitForTimeout(14_000);
 
 await callout("Browser agent delegates");
 const launched = await invoke("launch_mission", { planHandle: drafted.data.planHandle });
 await page.getByText("Human decision required").waitFor();
-await page.waitForTimeout(20_000);
+await page.waitForTimeout(13_000);
 
 await callout("Human decision required");
 await invoke("explain_block", { runHandle: launched.data.runHandle });
 await page.getByRole("button", { name: /Stage the release/ }).focus();
-await page.waitForTimeout(20_000);
+await page.waitForTimeout(16_000);
 await page.getByRole("button", { name: /Stage the release/ }).click();
 await page.locator(".decision-result").getByText("staged release").waitFor();
-await page.waitForTimeout(5_000);
+await page.waitForTimeout(4_000);
 
 await callout("Mission resumes safely");
 await invoke("observe_run", { runHandle: launched.data.runHandle });
@@ -116,16 +118,16 @@ await invoke("resume_after_human_decision", {
   decisionRef: launched.decisionRef,
 });
 await page.getByText("4 required evidence checks", { exact: false }).waitFor();
-await page.waitForTimeout(22_000);
+await page.waitForTimeout(16_000);
 
 await callout("Evidence verified");
 await page.getByRole("button", { name: "Accept this exact evidence pack" }).focus();
-await page.waitForTimeout(10_000);
+await page.waitForTimeout(11_000);
 await page.getByRole("button", { name: "Accept this exact evidence pack" }).click();
 await page.getByText("VALID", { exact: true }).waitFor();
 await invoke("verify_delivery", { runHandle: launched.data.runHandle });
 await callout("Certificate valid");
-await page.waitForTimeout(12_000);
+await page.waitForTimeout(14_000);
 
 await context.close();
 await video.saveAs(outputPath);
