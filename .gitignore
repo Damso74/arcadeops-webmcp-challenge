@@ -1,4 +1,6 @@
 .next/
+next-env.d.ts
+*.tsbuildinfo
 node_modules/
 .data/
 *.sqlite
