@@ -140,6 +140,8 @@ ArcadeOps previously contained private mission, approval, evidence, and certific
 
 Live: <https://arcadeops-relay.51-210-5-255.sslip.io>. Deployment evidence is recorded in [HACKATHON.md](HACKATHON.md).
 
+Devpost: <https://devpost.com/software/arcadeops-relay>.
+
 ## Video
 
 Watch the 1:12 public demonstration: <https://youtu.be/ZLokWHrxxjI>.

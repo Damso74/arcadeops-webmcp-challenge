@@ -50,8 +50,8 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 ## Devpost
 
 - [x] English submission description drafted — PASSED locally
-- [ ] Live URL, public repository, and YouTube URL inserted — NOT RUN
-- [ ] Screenshots and built-with tags complete — NOT RUN
-- [ ] No placeholders or unsupported claims — NOT RUN
-- [ ] Final submitted state and public page verified — NOT RUN
-- [ ] Confirmation URL, timestamp, and field snapshot saved — NOT RUN
+- [x] Live URL, public repository, and YouTube URL inserted — PASSED
+- [x] Branded visual and built-with tags complete — PASSED on public page
+- [x] No placeholders or unsupported claims — PASSED by public-page inspection
+- [x] Final submitted state and public page verified — PASSED: https://devpost.com/software/arcadeops-relay
+- [x] Confirmation URL, timestamp, and field snapshot saved — PASSED: `submission/devpost-submitted-snapshot.md`

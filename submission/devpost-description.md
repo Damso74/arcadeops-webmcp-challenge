@@ -2,6 +2,8 @@
 
 **WebMCP mission control from browser intent to verified delivery.**
 
+![ArcadeOps Relay mission control](https://raw.githubusercontent.com/Damso74/arcadeops-webmcp-challenge/main/submission/media/arcadeops-relay-thumbnail.png)
+
 ## Inspiration
 
 Browser agents can understand the page in front of a person, while worker agents can execute substantial tasks. What was missing was the operational layer between them: a shared place to turn intent into a mission, keep work moving, bring in human judgment at the right moment, and carry trustworthy context through to delivery. We built ArcadeOps Relay as that mission control layer.

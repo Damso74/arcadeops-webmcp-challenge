@@ -51,17 +51,18 @@ The parent ArcadeOps challenge branch begins with:
 - `d8a1bb12` — Codex-inspired mission hierarchy: progress rail, activity-first workspace, and collapsed WebMCP developer details.
 - `79ee6bef` — Codex workbench interaction pass: compact project chrome, real section tabs, inline action results, and a unified authority-and-proof review panel.
 - `4ba256ea` — canonical Checkpoint V3 app branding and a chronological cursor-led video recut using the existing Damien Voice profile.
+- `45cc31a8` — final mission-control positioning, public-release copy, media verification, and publication metadata.
 
-The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The deployed challenge UI is `79ee6bef`; synchronizing this final UI/media revision to the already-public export remains part of the consolidated publication gate.
+The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The branded implementation revision in the public history is `1df4d08f6c71e56a85e0041709093efb6c874cca`; the isolated deployment runs challenge revision `45cc31a8ca7707bb9a5e61da339e978515bc8dcb`.
 
 ## Deployment and publication
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
-- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed on UI commit `79ee6bef`. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later workbench refactor did not alter its WebMCP adapter or server contracts.
+- Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed on final challenge commit `45cc31a8`. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later mission-control refactor did not alter its WebMCP adapter or server contracts.
 - Media: branded production-build capture rendered at 1920×1080, 1:11.96, H.264/AAC, with native-cadence ElevenLabs Damien Voice narration, visible cursor/click feedback, chronological functional crossfades, burned captions, and a mission-control positioning; video SHA-256 `03f05e0e100be61dd3e688a65d8292e437e7687a7f4751eb094552f2da44894f`; thumbnail SHA-256 `244756d866dae7e9d53b8061ec16fd85b985065c046d52d4132838d0c48f8735`.
 - YouTube: <https://youtu.be/ZLokWHrxxjI> — VERIFIED PUBLIC without an authenticated session.
-- Devpost: not yet claimed until the final submission receipt is captured.
+- Devpost: <https://devpost.com/software/arcadeops-relay> — SUBMITTED and VERIFIED PUBLIC on `2026-09-02T08:27:49+02:00`; authenticated project manager reports `Submitted` for submission `1166709` and an anonymous HTTP request returns 200 with the ArcadeOps Relay title.
 
 ## Known limitations
 
-See the README limitations section. Native ChatGPT browser verification, the public deployment, public source, and public YouTube video are verified. Devpost status remains a separate submission state and is never inferred from prepared local artifacts.
+See the README limitations section. Native ChatGPT browser verification, the public deployment, public source, public YouTube video, and submitted public Devpost page are independently verified.
