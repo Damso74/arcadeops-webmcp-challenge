@@ -1,83 +1,103 @@
 1
-00:00:01,200 --> 00:00:04,633
-An AI agent can say the work is done.
+00:00:00,700 --> 00:00:03,640
+Most automation demos stop at “done.” Arcade
 
 2
-00:00:04,633 --> 00:00:08,067
-But who authorized it, and where is the proof?
+00:00:03,640 --> 00:00:06,579
+Ops asks two more questions: who decided,
 
 3
-00:00:08,067 --> 00:00:11,881
-Meet ArcadeOps Relay. In Project Aurora, a browser agent gets
+00:00:06,579 --> 00:00:08,679
+and what proves the result?
 
 4
-00:00:11,881 --> 00:00:14,552
-seven native Web M C P actions.
+00:00:08,679 --> 00:00:11,618
+This is Project Aurora, a release due
 
 5
-00:00:14,552 --> 00:00:17,604
-Not a chat box. Not a DOM script.
+00:00:11,618 --> 00:00:14,558
+tomorrow. A browser operator can use seven
 
 6
-00:00:17,604 --> 00:00:21,037
-First, it inspects tomorrow's release. One validation is blocked.
+00:00:14,558 --> 00:00:17,498
+native Web M C P actions to
 
 7
-00:00:21,037 --> 00:00:23,707
-Production changes and external contact are forbidden.
+00:00:17,498 --> 00:00:20,437
+inspect the real workspace — not scrape
 
 8
-00:00:23,707 --> 00:00:27,522
-Next, it drafts a bounded mission: phases, dependencies, a hard
+00:00:20,437 --> 00:00:22,957
+the screen. One validation is blocked.
 
 9
-00:00:27,522 --> 00:00:31,337
-cost cap, and four evidence checks. The plan appears live
+00:00:22,957 --> 00:00:25,896
+Production changes and outside contact are forbidden.
 
 10
-00:00:31,337 --> 00:00:35,152
-in the workspace. Now the browser delegates to a release
+00:00:25,896 --> 00:00:28,416
+The operator prepares a bounded mission.
 
 11
-00:00:35,152 --> 00:00:38,967
-worker. ArcadeOps persists the run, enforces the allowlist, and stops
+00:00:28,416 --> 00:00:31,356
+The plan appears here, with dependencies, a
 
 12
-00:00:38,967 --> 00:00:42,019
-exactly where human judgment starts. Here it is.
+00:00:31,356 --> 00:00:34,295
+hard cost cap, and four evidence checks.
 
 13
-00:00:42,019 --> 00:00:45,452
-Stage the release with documented residual risk, or postpone?
+00:00:34,295 --> 00:00:37,235
+Then it delegates one persisted run to
 
 14
-00:00:45,452 --> 00:00:49,267
-The agent can explain the tradeoff. It cannot approve itself.
+00:00:37,235 --> 00:00:40,174
+the release worker. Arcade Ops stops at
 
 15
-00:00:49,267 --> 00:00:53,081
-I choose the staged release. The same run resumes from
+00:00:40,174 --> 00:00:43,114
+the decision that actually matters: stage with
 
 16
-00:00:53,081 --> 00:00:56,896
-its signed context. The worker finishes the release summary and
+00:00:43,114 --> 00:00:45,214
+documented residual risk, or postpone.
 
 17
-00:00:56,896 --> 00:00:59,948
-rollback plan. Nothing touched production. Nobody was contacted.
+00:00:45,214 --> 00:00:48,153
+The software explains both outcomes, but it
 
 18
-00:00:59,948 --> 00:01:03,000
-Then the important part: verification. Four checks pass.
+00:00:48,153 --> 00:00:51,093
+cannot choose for me. I select staged
 
 19
-00:01:03,000 --> 00:01:06,815
-I accept this exact evidence pack, and Relay issues a
+00:00:51,093 --> 00:00:53,613
+release. The same signed run resumes.
 
 20
-00:01:06,815 --> 00:01:10,630
-signed Ed twenty-five five nineteen certificate. Valid. One shared workspace.
+00:00:53,613 --> 00:00:56,552
+The worker produces the release summary and
 
 21
-00:01:10,630 --> 00:01:13,300
-Agents execute. Humans decide. Evidence proves it.
+00:00:56,552 --> 00:00:58,652
+rollback plan, without touching production.
+
+22
+00:00:58,652 --> 00:01:01,171
+Now the proof. Four checks pass.
+
+23
+00:01:01,171 --> 00:01:03,691
+I accept this exact evidence pack.
+
+24
+00:01:03,691 --> 00:01:06,631
+Relay issues a signed certificate and verifies
+
+25
+00:01:06,631 --> 00:01:09,150
+it. The operator delegated. I decided.
+
+26
+00:01:09,150 --> 00:01:11,250
+Arcade Ops kept the evidence.

@@ -9,15 +9,15 @@ const words = narration.replace(/\s+/g, " ").trim().split(" ");
 const chunks = [];
 
 for (let cursor = 0; cursor < words.length; ) {
-  let end = Math.min(cursor + 10, words.length);
-  while (end < words.length && end > cursor + 6 && !/[.!?]$/.test(words[end - 1])) end -= 1;
-  if (end <= cursor + 6) end = Math.min(cursor + 10, words.length);
+  let end = Math.min(cursor + 7, words.length);
+  while (end < words.length && end > cursor + 4 && !/[.!?]$/.test(words[end - 1])) end -= 1;
+  if (end <= cursor + 4) end = Math.min(cursor + 7, words.length);
   chunks.push(words.slice(cursor, end).join(" "));
   cursor = end;
 }
 
-const speechStart = 1.2;
-const speechEnd = 73.3;
+const speechStart = 0.7;
+const speechEnd = 71.25;
 const secondsPerWord = (speechEnd - speechStart) / words.length;
 
 function timestamp(seconds) {

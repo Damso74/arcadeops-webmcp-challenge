@@ -1,5 +1,8 @@
 :root {
   color-scheme: light;
+  --brand-graphite: #101416;
+  --brand-ivory: #f7f5f0;
+  --brand-copper: #c98554;
   --background: #f7f7f5;
   --sidebar: #efefed;
   --surface: #fcfcfb;
@@ -10,8 +13,8 @@
   --muted-strong: #4d4e52;
   --border: #e5e5e3;
   --border-strong: #d4d4d1;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
+  --primary: #98502b;
+  --primary-hover: #7f4021;
   --success: #0f7653;
   --warning: #a85a0b;
   --danger: #b33a3a;
@@ -31,8 +34,8 @@
     --muted-strong: #c3c3c1;
     --border: #2c2c2b;
     --border-strong: #424240;
-    --primary: #60a5fa;
-    --primary-hover: #3b82f6;
+    --primary: #d99a6c;
+    --primary-hover: #c98554;
     --success: #4fbd91;
     --warning: #e3a24d;
     --danger: #ec7a7a;
@@ -66,7 +69,8 @@ code { overflow-wrap: anywhere; color: var(--muted-strong); font-family: var(--f
   background: var(--sidebar);
 }
 .brand-block { display: grid; grid-template-columns: 27px 1fr auto; align-items: center; gap: 9px; min-height: 48px; border-bottom: 1px solid var(--border); padding: 0 12px; }
-.brand-mark { display: grid; place-items: center; width: 27px; height: 27px; border: 1px solid var(--border-strong); border-radius: 5px; color: var(--foreground); background: var(--surface); font-size: 10px; font-weight: 750; }
+.brand-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; color: var(--brand-ivory); background: var(--brand-graphite); }
+.brand-mark svg { width: 19px; height: 19px; }
 .brand-block div { display: grid; line-height: 1.2; }
 .brand-block strong { font-size: 12px; }
 .brand-block span:last-child { color: var(--muted); font-size: 10px; }

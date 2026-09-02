@@ -8,7 +8,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ArcadeOps Relay — Project Aurora",
-  description: "Browser agents delegate real work to AI workers. Humans decide. Evidence proves.",
+  description: "WebMCP mission control from browser intent to verified delivery.",
+  applicationName: "ArcadeOps Relay",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

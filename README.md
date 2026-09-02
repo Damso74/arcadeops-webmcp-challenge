@@ -1,8 +1,8 @@
 # ArcadeOps Relay
 
-**Browser agents delegate real work to AI workers. Humans decide. Evidence proves.**
+**WebMCP mission control from browser intent to verified delivery.**
 
-ArcadeOps Relay is a WebMCP-native workspace where a browser agent can inspect a project, prepare a bounded mission, delegate a persisted worker run, pause for human authority, resume safely, and verify an evidence-backed release certificate.
+ArcadeOps Relay keeps agent missions moving. A browser agent can inspect a project, prepare a bounded mission, delegate a persisted worker run, bring a human into the moments that need judgment, resume without losing context, and verify an evidence-backed delivery.
 
 ![ArcadeOps Relay judge workspace](docs/assets/relay-dashboard.png)
 
@@ -142,7 +142,7 @@ Live: <https://arcadeops-relay.51-210-5-255.sslip.io>. Deployment evidence is re
 
 ## Video
 
-The public demonstration URL is recorded in [submission/youtube-metadata.md](submission/youtube-metadata.md) after publication.
+Watch the 1:12 public demonstration: <https://youtu.be/ZLokWHrxxjI>.
 
 ## License
 

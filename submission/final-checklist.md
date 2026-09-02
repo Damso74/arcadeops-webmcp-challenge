@@ -39,13 +39,13 @@ Status values: `PASSED`, `FAILED`, or `NOT RUN` only.
 
 ## Video
 
-- [x] Final concise English script — PASSED (189 words; conversational cut after pacing review)
-- [x] ElevenLabs narration generated and inspected — PASSED (Liam, Eleven Multilingual v2, native 1.20 speed, 189 words)
-- [x] Genuine deployed browser footage captured — PASSED (live URL, WebMCP-compatible harness)
-- [x] 1920×1080 render under 2:55 — PASSED (1:16.00, H.264/AAC)
-- [x] Audio, loudness, captions, six sequence frames, first/final frames, and privacy inspected — PASSED (-16.6 LUFS, -1.5 dBTP)
+- [x] Final concise English script — PASSED (168 words; conversational first-person cut)
+- [x] ElevenLabs narration generated and inspected — PASSED (existing Damien Voice, Eleven Multilingual v2 recommended defaults, native 1.00 speed)
+- [x] Genuine production-build browser footage captured — PASSED (native-compatible seven-tool harness, visible cursor and human clicks)
+- [x] 1920×1080 render under 2:55 — PASSED (1:11.96, H.264/AAC)
+- [x] Audio, loudness, captions, chronological transitions, first/final frames, and privacy inspected — PASSED (-16.2 LUFS, -1.3 dBTP)
 - [x] Thumbnail 1280×720 inspected — PASSED
-- [ ] YouTube Public and signed-out URL verified — NOT RUN
+- [x] YouTube Public and signed-out URL verified — PASSED: https://youtu.be/ZLokWHrxxjI
 
 ## Devpost
 

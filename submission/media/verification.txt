@@ -2,22 +2,31 @@ ArcadeOps Relay media verification
 Generated: 2026-09-01
 
 Video: arcadeops-relay-webmcp-demo.mp4
-SHA-256: 2157f6d2e480df5b098c4a52a92ef047dfd71672a540111429ee6f7fd1464464
-Bytes: 5501822
-Duration: 00:01:16.00
+SHA-256: 03f05e0e100be61dd3e688a65d8292e437e7687a7f4751eb094552f2da44894f
+Bytes: 6947708
+Duration: 00:01:11.96
 Video: H.264 High, 1920x1080, 25 fps, yuv420p
 Audio: AAC LC, 48 kHz, mono
-Integrated loudness: -16.6 LUFS
-True peak: -1.5 dBTP
+Narration: ElevenLabs Damien Voice, Eleven Multilingual v2 recommended defaults
+Integrated loudness: -16.2 LUFS
+True peak: -1.3 dBTP
 Captions: English, burned in; source SRT retained
-Black-frame result: intentional dark editorial title card occupies the initial 1.6 seconds; no unintended black segment
-Final silence: 2.93 seconds over the visible verified-certificate state
+Source order: chronological; 0.5-second crossfades overlap adjacent source time only
+Cursor: visible DOM cursor with eased movement and click feedback
+Black-frame result: intentional branded graphite title card; no unintended black segment
+Silence: 0.73-second lead-in and 0.88-second visible certificate tail
+
+Audio review file: arcadeops-relay-narration.mp3
+SHA-256: 42e30e8e91eadaaa4c1a509bab9cd21e6540ef5568fe885008ec89b3f9bd49e6
+Bytes: 1728724
+Format: MP3, 48 kHz, mono, 192 kbps
 
 Thumbnail: arcadeops-relay-thumbnail.png
-SHA-256: aae07ccaeac3148dc64b202fabe8f407302b8f1e1c52bf5eba4cca49e5df43b3
-Bytes: 175553
+SHA-256: 244756d866dae7e9d53b8061ec16fd85b985065c046d52d4132838d0c48f8735
+Bytes: 136565
 Dimensions: 1280x720
 
-Inspection: title card, six numbered sequence states including final certificate, codec metadata,
-audio presence, loudness, captions, and privacy reviewed. No private data,
-secret, unrelated browser chrome, third-party logo, or notification is visible.
+Inspection: canonical Checkpoint V3 mark, graphite/ivory/copper palette, mission-control title card,
+chronological transitions, cursor and human clicks, evidence/certificate state,
+codec metadata, audio presence, loudness, subtitles, first/final frames, and privacy reviewed.
+No private data, secret, unrelated browser chrome, third-party logo, or notification is visible.

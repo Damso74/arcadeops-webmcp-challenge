@@ -50,6 +50,7 @@ The parent ArcadeOps challenge branch begins with:
 - `21c1999b` — Catalyst-inspired operations refinement: grouped navigation, discreet WebMCP command, actionable review controls, and deterministic test isolation.
 - `d8a1bb12` — Codex-inspired mission hierarchy: progress rail, activity-first workspace, and collapsed WebMCP developer details.
 - `79ee6bef` — Codex workbench interaction pass: compact project chrome, real section tabs, inline action results, and a unified authority-and-proof review panel.
+- `4ba256ea` — canonical Checkpoint V3 app branding and a chronological cursor-led video recut using the existing Damien Voice profile.
 
 The public repository starts from a new root commit so private history cannot be exposed: <https://github.com/Damso74/arcadeops-webmcp-challenge>. Anonymous README and MIT license reads returned HTTP 200 after publication. The deployed challenge UI is `79ee6bef`; synchronizing this final UI/media revision to the already-public export remains part of the consolidated publication gate.
 
@@ -57,9 +58,10 @@ The public repository starts from a new root commit so private history cannot be
 
 - Public source: <https://github.com/Damso74/arcadeops-webmcp-challenge> — VERIFIED PUBLIC.
 - Live deployment: <https://arcadeops-relay.51-210-5-255.sslip.io> — HTTPS 200 and 15/15 deployed E2E tests passed on UI commit `79ee6bef`. A native ChatGPT in-app browser flow reached a valid certificate at `2026-09-01T09:41:16Z`; the later workbench refactor did not alter its WebMCP adapter or server contracts.
-- Media: final deployed-app capture rendered at 1920×1080, 1:16.00, H.264/AAC, with native-cadence ElevenLabs Liam narration, six fast product sequences, functional punch-ins, and burned captions; video SHA-256 `2157f6d2e480df5b098c4a52a92ef047dfd71672a540111429ee6f7fd1464464`; thumbnail SHA-256 `aae07ccaeac3148dc64b202fabe8f407302b8f1e1c52bf5eba4cca49e5df43b3`.
-- YouTube and Devpost: not yet claimed.
+- Media: branded production-build capture rendered at 1920×1080, 1:11.96, H.264/AAC, with native-cadence ElevenLabs Damien Voice narration, visible cursor/click feedback, chronological functional crossfades, burned captions, and a mission-control positioning; video SHA-256 `03f05e0e100be61dd3e688a65d8292e437e7687a7f4751eb094552f2da44894f`; thumbnail SHA-256 `244756d866dae7e9d53b8061ec16fd85b985065c046d52d4132838d0c48f8735`.
+- YouTube: <https://youtu.be/ZLokWHrxxjI> — VERIFIED PUBLIC without an authenticated session.
+- Devpost: not yet claimed until the final submission receipt is captured.
 
 ## Known limitations
 
-See the README limitations section. Native ChatGPT browser verification and the public deployment are verified. YouTube publication and Devpost status remain separate release gates and are never inferred from prepared local artifacts.
+See the README limitations section. Native ChatGPT browser verification, the public deployment, public source, and public YouTube video are verified. Devpost status remains a separate submission state and is never inferred from prepared local artifacts.

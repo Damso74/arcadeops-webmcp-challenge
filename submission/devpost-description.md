@@ -1,14 +1,14 @@
 # ArcadeOps Relay
 
-**Browser agents delegate real work to AI workers. Humans decide. Evidence proves.**
+**WebMCP mission control from browser intent to verified delivery.**
 
 ## Inspiration
 
-Browser agents can navigate and call tools, while worker agents can execute substantial tasks. The accountability gap appears between them: who authorized the delegated action, whether a retry duplicated work, whether “done” reflects authoritative state, and what evidence supports the result. We built ArcadeOps Relay to make that delegation legible and governed.
+Browser agents can understand the page in front of a person, while worker agents can execute substantial tasks. What was missing was the operational layer between them: a shared place to turn intent into a mission, keep work moving, bring in human judgment at the right moment, and carry trustworthy context through to delivery. We built ArcadeOps Relay as that mission control layer.
 
 ## What it does
 
-Relay gives a browser agent seven intent-level WebMCP tools on a live Project Aurora workspace. The agent inspects the objective and constraints, drafts a bounded mission, launches a persisted internal worker, and observes progress. ArcadeOps pauses at a strategic release decision. The human sees the reason, consequences, and evidence in the same page and chooses whether to stage the release or postpone. The agent can then resume the exact run—but cannot create the decision. The worker produces release-readiness artifacts, ArcadeOps evaluates four required evidence checks, and the human accepts the exact evidence-pack hash. Only then is an Ed25519 release certificate issued and independently verified.
+Relay gives a browser agent seven intent-level WebMCP tools on a live Project Aurora workspace. The agent inspects the objective and constraints, drafts a bounded mission, delegates a persisted internal worker, and follows authoritative progress. ArcadeOps coordinates the handoffs and surfaces one strategic release choice when human judgment adds value. The person sees the consequences and evidence in the same workspace, chooses whether to stage or postpone, and the exact run resumes with its context intact. The worker produces the release-readiness artifacts, ArcadeOps evaluates four required evidence checks, and a hash-bound Ed25519 certificate proves the accepted delivery.
 
 ## Why WebMCP
 
@@ -16,7 +16,7 @@ WebMCP lets the browser agent use the current page, scoped judge session, projec
 
 ## Human-agent collaboration
 
-The human and agents share one authoritative workspace. The browser agent delegates rather than impersonating a worker. The worker executes rather than claiming authority. The human decides at the strategic gate and accepts a specific evidence version. Together they can delegate real bounded work, pause for authority, resume idempotently, and prove delivery—without allowing an agent to approve itself.
+The human, browser agent, and worker share one authoritative workspace. The browser agent turns visible project context into a mission; the worker executes; ArcadeOps preserves progress, cost, decisions, and evidence; and the human guides the strategic moments. Together they can delegate real bounded work, resume safely after a decision, and prove delivery without losing context or letting an agent approve itself.
 
 ## How it was built
 

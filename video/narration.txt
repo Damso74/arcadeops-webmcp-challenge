@@ -1,19 +1,13 @@
-An AI agent can say the work is done. But who authorized it, and where is the proof?
+Most automation demos stop at “done.” Arcade Ops asks two more questions: who decided, and what proves the result?
 
-Meet ArcadeOps Relay. In Project Aurora, a browser agent gets seven native Web M C P actions. Not a chat box. Not a DOM script.
+This is Project Aurora, a release due tomorrow. A browser operator can use seven native Web M C P actions to inspect the real workspace — not scrape the screen. One validation is blocked. Production changes and outside contact are forbidden.
 
-First, it inspects tomorrow's release. One validation is blocked. Production changes and external contact are forbidden.
+The operator prepares a bounded mission. The plan appears here, with dependencies, a hard cost cap, and four evidence checks. Then it delegates one persisted run to the release worker.
 
-Next, it drafts a bounded mission: phases, dependencies, a hard cost cap, and four evidence checks. The plan appears live in the workspace.
+Arcade Ops stops at the decision that actually matters: stage with documented residual risk, or postpone. The software explains both outcomes, but it cannot choose for me. I select staged release.
 
-Now the browser delegates to a release worker. ArcadeOps persists the run, enforces the allowlist, and stops exactly where human judgment starts.
+The same signed run resumes. The worker produces the release summary and rollback plan, without touching production.
 
-Here it is. Stage the release with documented residual risk, or postpone? The agent can explain the tradeoff. It cannot approve itself.
+Now the proof. Four checks pass. I accept this exact evidence pack. Relay issues a signed certificate and verifies it.
 
-I choose the staged release.
-
-The same run resumes from its signed context. The worker finishes the release summary and rollback plan. Nothing touched production. Nobody was contacted.
-
-Then the important part: verification. Four checks pass. I accept this exact evidence pack, and Relay issues a signed Ed twenty-five five nineteen certificate. Valid.
-
-One shared workspace. Agents execute. Humans decide. Evidence proves it.
+The operator delegated. I decided. Arcade Ops kept the evidence.

@@ -16,14 +16,14 @@ if (-not (Test-Path -LiteralPath $inputAudio)) {
   throw "Narration master was not found at $inputAudio"
 }
 
-# Keep the ElevenLabs delivery at its generated cadence. Tempo processing made
-# earlier cuts sound unnaturally slow, so post-production only delays, resamples,
-# normalizes and pads the native read.
+# Keep the ElevenLabs delivery at its generated cadence. The measured values are
+# from the Damien master and let loudnorm reach approximately -16 LUFS while
+# preserving a safe -1.5 dBTP ceiling. No tempo or pitch processing is applied.
 & $Ffmpeg `
   -hide_banner `
   -y `
   -i $inputAudio `
-  -af "adelay=1200,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,apad,atrim=duration=76.00" `
+  -af "adelay=700,loudnorm=I=-13:TP=-1.5:LRA=11:measured_I=-18.69:measured_TP=-0.70:measured_LRA=5.50:measured_thresh=-29.13:offset=2.09:linear=false,aresample=48000,apad,atrim=duration=71.96" `
   -c:a pcm_s24le `
   $outputAudio
 
